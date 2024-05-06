@@ -1,0 +1,162 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EB29A04A-868B-E65E-416D-658BA7E9F2D9" name="NodeDirection">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>F8CE3C90-BC76-EBE3-CEAD-E5F894AF60ED</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="node_direction_id" id="115414F5-ED28-642C-38A1-A85314D543EF">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>63EAAE3A-D179-0E6F-A77E-48BA1D22E946</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="left_top" id="E7A56B12-4E61-8351-384C-4F9994BA93AC">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>1C899741-DA80-3543-7542-2E5372FE7640</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="top" id="40D10052-C7C6-BDBF-2A1B-D36A859E3016">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>B0057CC3-6071-5618-3474-949E5CD2377F</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="right_top" id="8D58806F-85F9-1B0C-4DE4-79655EABA0F5">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>FCDBF8FD-B28F-7C88-BE0E-FAAA0C887BCF</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="left" id="7A42BB89-5998-912B-9925-43665243F117">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>A4125A3A-2BEF-B403-FC12-9F62ED6E53B9</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="right" id="D98FEA97-4D9D-ED70-302F-6D6909DC0B1D">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>582CE58E-5779-4BCF-348A-966196736A89</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="left_bottom" id="3DDFE38A-CF2B-FA30-1B23-66BF0521D2A5">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>5ECE6468-80D4-5238-D063-2892D3159212</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bottom" id="3C89E7FD-04E1-AA20-BCC2-38279E7670F4">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>A3B6E784-81E7-D1F8-3EDA-D6096F095240</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="right_bottom" id="8890539E-2C70-2FA1-4A0E-83643324667D">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>88B5D8C4-D22B-11B6-08F0-8FA34341FAC0</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Node_node_id" id="8931BDE9-3FAD-7D4A-748D-B6EBFEB70246">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>E5C2D70F-FA89-E91F-11B6-CB6A27A52A6E</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6662C5CF-2A85-CA49-4787-2C3B3EF77E2C" referredColumn="589CACF0-3E49-EECE-C3AC-8C8B75FB89B8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BB5BCD8F-0EBD-99B6-A9AB-2CC5646BD2B4" name="NodeDirection_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>34A7724E-C5CE-2A42-FE5B-BCAFE4E4FCF9</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="115414F5-ED28-642C-38A1-A85314D543EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1998F633-0952-A3A6-B5C8-CE39818999ED" name="NodeDirection__IDX">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>341A416B-B4CF-6FB8-2E4D-89BFEF76783F</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="8931BDE9-3FAD-7D4A-748D-B6EBFEB70246"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CE5E8B79-D19D-7375-6245-9BFA7E577684" name="NodeDirection_Node_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>341A416B-B4CF-6FB8-2E4D-89BFEF76783F</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8931BDE9-3FAD-7D4A-748D-B6EBFEB70246"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

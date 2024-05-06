@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2AB76BAC-34F0-DCC9-C480-5A99879599A7" name="Version">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:28:50 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="version_id" id="41FCCFED-38EE-11E3-FCF7-D780B0EBEEDB">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:28:56 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Game_game_id" id="6F9349F0-CF26-883D-1773-C10EFB945C6C">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:30:11 UTC</createdTime>
+<generatorID>6CE680BA-58D7-1BEA-FEB0-07FF1BF1DC47</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>D578B9E5-EBEF-22B9-1168-193DB5A24131</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="game_field_row" id="6145BAB6-E511-5423-9A7D-8DA06D0AB94F">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:31:39 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="game_field_col" id="7F8DA004-0031-4DFB-8264-EF30ABDB8366">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:31:58 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="move1" id="0B039835-F29A-E50C-1C18-3F96664D3ED2">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:32:08 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="move2" id="C0BADAB7-DC06-75F5-D8F8-F4989907948C">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:32:08 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="turn_max" id="460ABB4E-56A6-9C6E-8E8B-6ED949B74A17">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:32:23 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="turn_time_limit" id="185E5575-7305-297C-67DA-C5FED4081CA3">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:32:45 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="22A54297-32A0-4300-D07A-B4E8FB4B7E03" name="Version PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 03:29:06 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>41FCCFED-38EE-11E3-FCF7-D780B0EBEEDB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

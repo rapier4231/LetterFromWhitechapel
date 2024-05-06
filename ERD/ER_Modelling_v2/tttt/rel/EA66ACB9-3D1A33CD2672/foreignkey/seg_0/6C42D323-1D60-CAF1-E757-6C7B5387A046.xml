@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="6C42D323-1D60-CAF1-E757-6C7B5387A046" containerWithKeyObject="129BB750-C484-1E2E-0F67-8006A20E64DB" localFKIndex="648FF527-7190-336F-C747-31470CCCC85B" name="Move_Play_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>19B2BCD1-957B-604F-5791-6C58424BA5A7</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<referredTableLongName>Play</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2F7AEB0C-F638-30D1-314A-4C48A7ACC18D</referredTableID>
+<keyObject>FEE6502E-1019-E5A9-471C-BC468B6C7D14</keyObject>
+<referredKeyID>FEE6502E-1019-E5A9-471C-BC468B6C7D14</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>User_user_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

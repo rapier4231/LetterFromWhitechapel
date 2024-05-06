@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D73CBC1A-DD25-D621-742A-2486B12EB42A" name="Wait">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:53:33 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="wait_id" id="113918EB-A2D9-3E21-7C9C-2CDA9CF04BE1">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:53:51 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="state" id="0CB8FCEA-33C7-CE67-AF28-B59C42929814">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:53:51 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="create_at" id="F998B0E3-7605-31A3-C5D3-7AAEE8E0BCC6">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:53:51 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="update_at" id="DA8C982E-9758-F19B-2BD5-6278F0CC7896">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:53:52 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="User_user_id" id="5ED74FCC-AC7F-202D-23DE-70F51CD633BF">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 07:28:25 UTC</createdTime>
+<generatorID>589C87CA-808A-875D-D49A-4CE2F4209782</generatorID>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>ABEE747B-5B3F-C488-2724-ECCCED76BEA8</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4ACA60C1-00DB-45D5-614C-67EFCC524758" name="Wait PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:53:58 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>113918EB-A2D9-3E21-7C9C-2CDA9CF04BE1</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="7AC3D5E5-22A3-268A-0C48-FC34EEFB70EE" name="user_id">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 07:58:27 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<newElementsIDs>5ED74FCC-AC7F-202D-23DE-70F51CD633BF</newElementsIDs>
+<usedAttributes>
+<attributeRef>5ED74FCC-AC7F-202D-23DE-70F51CD633BF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

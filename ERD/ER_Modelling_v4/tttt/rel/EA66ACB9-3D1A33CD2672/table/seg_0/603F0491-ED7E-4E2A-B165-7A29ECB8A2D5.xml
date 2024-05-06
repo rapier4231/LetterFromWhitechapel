@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="603F0491-ED7E-4E2A-B165-7A29ECB8A2D5" name="Player">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>0C3733BE-3AB8-E20C-D075-52968E30D34F</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="player_id" id="9A11088C-AC2C-59FE-2132-6B825B766B02">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>ABEE747B-5B3F-C488-2724-ECCCED76BEA8</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nick_name" id="856452BD-B7CF-D40D-28FF-BB669CCE90C9">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>A201A7C3-9120-EB8D-98EF-521CF71B6AD1</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>551459CA-CECF-52D8-6556-399528A80484</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="create_time" id="8FB447C3-9487-DB5D-9D05-481202B8AD2A">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>C563F4EF-6661-3849-9FFB-5B7CE78CC652</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="score" id="D89E714D-F128-96CC-6575-C2613E857547">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>DAC2657F-A69A-D8A3-7F03-FE7E657464EA</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<domain>C5D6CB52-77E5-A54F-0FB6-E2E2F9743E97</domain>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4535E040-8FF1-7FD4-512C-1F7B7ECE153C" name="Player_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>AEEF1DA1-1FEF-5D66-ACA9-7EAF95193CD2</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A11088C-AC2C-59FE-2132-6B825B766B02"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

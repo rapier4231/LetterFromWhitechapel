@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2485734D-C64A-FC98-B42D-C36991374366" name="User">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>0C3733BE-3AB8-E20C-D075-52968E30D34F</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="user_id" id="CDAA8943-23CE-4D81-F189-AB35BB15A5F5">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>ABEE747B-5B3F-C488-2724-ECCCED76BEA8</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nick_name" id="AA686B2C-AA04-F75D-FE7C-A08D08C64749">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>A201A7C3-9120-EB8D-98EF-521CF71B6AD1</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>551459CA-CECF-52D8-6556-399528A80484</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="create_at" id="504A7A51-8609-F704-16A2-A828C76DB704">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>C563F4EF-6661-3849-9FFB-5B7CE78CC652</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="update_at" id="D37ED1E1-65DA-9A21-028E-D78B86BC3931">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>3FBF8A22-60B7-F268-7276-4BD2F0537ED3</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="004D826F-8FB8-0637-5E23-2D844B0F28EF" name="User_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>AEEF1DA1-1FEF-5D66-ACA9-7EAF95193CD2</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CDAA8943-23CE-4D81-F189-AB35BB15A5F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

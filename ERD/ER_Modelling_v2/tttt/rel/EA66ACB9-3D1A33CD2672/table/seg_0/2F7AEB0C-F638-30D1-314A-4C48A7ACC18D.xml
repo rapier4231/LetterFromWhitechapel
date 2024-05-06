@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2F7AEB0C-F638-30D1-314A-4C48A7ACC18D" name="Play">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>F6B90A67-331E-C4DC-29D0-B41BF10CB3FF</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="play_id" id="59B4539B-EECC-5165-1F4B-2D8C3A4E4F56">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>5CE30B80-3B9E-23EB-D07D-C454C7CA026A</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_user_id" id="BCA56966-1988-EC6B-46C4-617A8A4B47AD">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>2D24962F-489B-D1A3-4CCC-126B0DDDB970</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="51567084-BBF0-BB86-49C8-61570B03FE2F" referredColumn="CDAA8943-23CE-4D81-F189-AB35BB15A5F5"/>
+</associations>
+</Column>
+<Column name="Game_game_id" id="69AE23A1-04CC-12E3-8D7E-DF4981013CFB">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>F82C2A14-3B4B-150B-6D01-31CB010B3B3B</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="84186B6C-86F4-892C-4A58-13CCA0479D13" referredColumn="AFA9F31E-0938-E256-2C87-AE527F2B670E"/>
+</associations>
+</Column>
+<Column name="role" id="D7B66291-4951-12EF-5C64-357FF1E611D5">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>7D395789-1363-4216-30AB-826E325B673C</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="23FCA62D-1CA4-AEA9-46F2-43406BF65C4A" name="Play_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>52AC28FF-1192-1D3C-A75F-DF0923E309A4</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="59B4539B-EECC-5165-1F4B-2D8C3A4E4F56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FEE6502E-1019-E5A9-471C-BC468B6C7D14" name="Play_User_user_id_UN">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>A7BB5FF8-A00D-03F8-8EB8-081B1781E5F2</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCA56966-1988-EC6B-46C4-617A8A4B47AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2A7C4F0C-7DA7-716D-F902-C05BA7EA7C94" name="Play_User_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>99161B05-3C08-3518-A13C-C0FBB69C3EE1</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCA56966-1988-EC6B-46C4-617A8A4B47AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C337C71D-FA1B-7D3A-1FAC-13F1496D6FC2" name="Play_Game_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>7C6C3105-78A2-C35E-006F-9613DE4237E1</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="69AE23A1-04CC-12E3-8D7E-DF4981013CFB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

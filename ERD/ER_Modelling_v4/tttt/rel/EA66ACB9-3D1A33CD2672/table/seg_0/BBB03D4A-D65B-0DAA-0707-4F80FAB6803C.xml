@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BBB03D4A-D65B-0DAA-0707-4F80FAB6803C" name="Node">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>CD43666A-91FB-D354-43CE-EAAF28D95564</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="node_id" id="589CACF0-3E49-EECE-C3AC-8C8B75FB89B8">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>67A85693-9CE9-7FF3-3BF3-F00E67E8AF09</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="node_name" id="85F88050-41CF-5CBA-B1B5-29FAED8F89AF">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>87939E28-B245-09F3-10AB-60E85A2B8FD7</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>11DA9C77-5EC6-E96B-F4CA-BA2751C6F2E3</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="node_state" id="DE6B7A8E-0963-FDB0-E3B0-0E971A8AC54B">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>AACD90CB-47DE-7621-AAAF-E70EDDAE0A31</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PlayRoom_play_room_id" id="6D7938A4-6BB9-AF30-D87D-F7975BCAB0E3">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>8F215AAC-26E5-7E54-12C0-D47B78DBB0C4</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="127C4B57-7C64-4B9A-6408-8F989ED755AA" referredColumn="7AB9EFBE-98F4-CAD3-4736-58700C45BB46"/>
+</associations>
+</Column>
+<Column name="PlayRoom_role" id="DE1359A1-A242-B70B-8248-390E8E1B1916">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>7499702D-7502-CF97-D4DC-B196730FED13</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="127C4B57-7C64-4B9A-6408-8F989ED755AA" referredColumn="70044388-B70C-3880-2336-E404B5ABBD40"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A0BEAE53-08F3-E284-565A-FFA8F45BAFBB" name="Node_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>29540E47-3CB8-2B7D-B8D5-E128F9C88023</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="589CACF0-3E49-EECE-C3AC-8C8B75FB89B8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BF16896B-BB60-A118-BBD7-6BBCBBC746D0" name="Node_PlayRoom_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>FDC1FFA9-A9BE-8994-F25C-4F4101E0A3DC</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6D7938A4-6BB9-AF30-D87D-F7975BCAB0E3"/>
+<colUsage columnID="DE1359A1-A242-B70B-8248-390E8E1B1916"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

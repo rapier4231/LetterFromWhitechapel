@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F11CE7A1-CC43-06EB-F6F6-FD879657E4D0" name="Move">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:47:37 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="move_id" id="62BF9DF6-9688-8CD1-1CDC-7F5A28A452BD">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:47:37 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="game_turn" id="2A16AF96-21C3-10CF-9AA7-038992541A61">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:47:37 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F289B161-B1DC-A399-7DF9-72A106E8A015</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Node_node_id" id="831B7A00-9646-1467-4E7B-B08A9FA736AE">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:22:53 UTC</createdTime>
+<generatorID>EB25831F-F321-981F-DD53-6AE0D3AD3EE4</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>67A85693-9CE9-7FF3-3BF3-F00E67E8AF09</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Play_User_user_id" id="C74EA782-995D-6035-A980-483CFF344576">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:27:10 UTC</createdTime>
+<generatorID>19B2BCD1-957B-604F-5791-6C58424BA5A7</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>2D24962F-489B-D1A3-4CCC-126B0DDDB970</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Play_play_id" id="36D4FF4A-EEEB-D357-3C8B-98C087A70489">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:27:47 UTC</createdTime>
+<generatorID>40853551-D121-C60E-C023-E2B1889B9334</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>5CE30B80-3B9E-23EB-D07D-C454C7CA026A</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8BA90184-F99B-0955-DC1C-F6A67DE8CF3C" name="Move PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:47:55 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>62BF9DF6-9688-8CD1-1CDC-7F5A28A452BD</newElementsIDs>
+<usedAttributes>
+<attributeRef>62BF9DF6-9688-8CD1-1CDC-7F5A28A452BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

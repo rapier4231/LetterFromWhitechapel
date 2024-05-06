@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="0430" id="EA5A687C-6E83-F67F-7FE2-414F76BC3D6F" version="3.5">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 01:02:45 UTC</createdTime>
+<ownerDesignName>0430</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>EA5A687C-6E83-F67F-7FE2-414F76BC3D6F</designId>
+</OSDM_Design>

@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C031C6B8-0B28-4C5B-8E8C-F3D8E8543C55" name="Wait">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:19:18 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="false"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="wait_id" id="6D2D94E8-EB9A-BBCC-77A3-C1F6293C4E12">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:19:27 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="false"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="User_user_id" id="3D355303-B8BB-59AD-B645-2CDBD4471750">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:20:20 UTC</createdTime>
+<generatorID>59A209CC-D162-B97D-C866-AC1F46185A51</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>ABEE747B-5B3F-C488-2724-ECCCED76BEA8</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="state" id="A709DA9B-6C58-317B-94F8-B4F2443A9597">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:42:15 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="false"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="create_time" id="D4EE5E6A-B9CA-951D-285E-36E906D20136">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:44:00 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="update_time" id="D79DDF18-50DF-4EF0-CDF0-8B2CB39FB9EC">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:44:00 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5EA04D04-4B0D-0DBA-12C0-6F008631E137" name="Wait PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:19:28 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6D2D94E8-EB9A-BBCC-77A3-C1F6293C4E12</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

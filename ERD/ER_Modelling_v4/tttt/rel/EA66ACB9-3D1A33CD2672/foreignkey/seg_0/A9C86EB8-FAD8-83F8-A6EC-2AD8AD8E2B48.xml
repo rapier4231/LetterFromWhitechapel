@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A9C86EB8-FAD8-83F8-A6EC-2AD8AD8E2B48" containerWithKeyObject="69BAF1A5-3CEE-4FBF-490F-927B68BE4F22" localFKIndex="DC00639B-6EBC-C828-B8FB-B3A95DD362B1" name="PlayRoom_GameVersion_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>CE6D06EA-4E7C-CBF3-EAA6-EB583D73B2C7</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<referredTableLongName>GameVersion</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>BB7D7C54-47D0-3E99-9501-8B51C7FC5911</referredTableID>
+<keyObject>ED4635DA-7CBC-B372-48E8-50920DAFC928</keyObject>
+<referredKeyID>ED4635DA-7CBC-B372-48E8-50920DAFC928</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>game_version_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

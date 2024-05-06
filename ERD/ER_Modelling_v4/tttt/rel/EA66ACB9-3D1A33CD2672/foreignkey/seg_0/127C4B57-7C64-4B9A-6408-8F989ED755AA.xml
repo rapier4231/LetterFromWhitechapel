@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="127C4B57-7C64-4B9A-6408-8F989ED755AA" containerWithKeyObject="BBB03D4A-D65B-0DAA-0707-4F80FAB6803C" localFKIndex="BF16896B-BB60-A118-BBD7-6BBCBBC746D0" name="Node_PlayRoom_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>FDC1FFA9-A9BE-8994-F25C-4F4101E0A3DC</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<referredTableLongName>PlayRoom</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>69BAF1A5-3CEE-4FBF-490F-927B68BE4F22</referredTableID>
+<keyObject>F712439C-0A5B-89D1-83E2-06E8781E99FD</keyObject>
+<referredKeyID>F712439C-0A5B-89D1-83E2-06E8781E99FD</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>play_room_id,role</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9F3537E5-D237-FD38-8AFC-27E69DEF7625" name="PlayWait">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>C031C6B8-0B28-4C5B-8E8C-F3D8E8543C55</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="play_wait_id" id="BC3FEAA6-DBB8-6B85-7BB2-3F796E90BCD9">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>6D2D94E8-EB9A-BBCC-77A3-C1F6293C4E12</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="state" id="B219D676-EBB0-4724-3F17-C445A73D358B">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>A709DA9B-6C58-317B-94F8-B4F2443A9597</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="create_time" id="961B8BC1-7A4C-DD9B-812F-FC40A375680A">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>D4EE5E6A-B9CA-951D-285E-36E906D20136</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="update_time" id="E6014F19-1FC6-9C76-FA7D-DB206D01D3F0">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>D79DDF18-50DF-4EF0-CDF0-8B2CB39FB9EC</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Player_player_id" id="17575F79-90FE-94C5-5F54-70AB6DF99759">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>03CD8E42-4742-F23B-A8A9-1725F9FB3A4F</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2828661B-F596-97F5-59D9-44C7257B9208" referredColumn="9A11088C-AC2C-59FE-2132-6B825B766B02"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ABC78537-C13A-0C12-9C8E-740AB80E0405" name="PlayWait_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>5EA04D04-4B0D-0DBA-12C0-6F008631E137</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BC3FEAA6-DBB8-6B85-7BB2-3F796E90BCD9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DF78D9BE-79E7-3574-C25F-67D1EF3DEF29" name="PlayWait__IDX">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>068DBB9D-326A-5E60-22ED-82ECB22963F9</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="17575F79-90FE-94C5-5F54-70AB6DF99759"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A9B365E5-8F47-32DE-D5F7-76C214B9E6F3" name="PlayWait_Player_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>068DBB9D-326A-5E60-22ED-82ECB22963F9</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="17575F79-90FE-94C5-5F54-70AB6DF99759"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

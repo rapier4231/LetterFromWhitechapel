@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="129BB750-C484-1E2E-0F67-8006A20E64DB" name="Move">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>F11CE7A1-CC43-06EB-F6F6-FD879657E4D0</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="move_id" id="2443042D-AEC1-4E61-A393-E0E618597403">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>62BF9DF6-9688-8CD1-1CDC-7F5A28A452BD</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="game_turn" id="83CCBF1B-4309-8A89-78F7-94ADE32EDF15">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>2A16AF96-21C3-10CF-9AA7-038992541A61</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F289B161-B1DC-A399-7DF9-72A106E8A015</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Node_node_id" id="6423A9A5-7B0E-1287-4D77-8E833052C693">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>831B7A00-9646-1467-4E7B-B08A9FA736AE</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7444F4F9-F5AD-A673-0548-7DBC7E2D0450" referredColumn="0557F2C2-410A-E11B-8BA6-06060C62D234"/>
+</associations>
+</Column>
+<Column name="Play_User_user_id" id="B67181AA-CA5E-BFEB-E876-C7C0F25AE2B9">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>C74EA782-995D-6035-A980-483CFF344576</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C42D323-1D60-CAF1-E757-6C7B5387A046" referredColumn="BCA56966-1988-EC6B-46C4-617A8A4B47AD"/>
+</associations>
+</Column>
+<Column name="Play_play_id" id="C6B33CCD-959C-067E-B24B-ED1FA2D6E9C3">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>36D4FF4A-EEEB-D357-3C8B-98C087A70489</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61138ABD-57B4-8D17-4A06-2DBC0475CDEF" referredColumn="59B4539B-EECC-5165-1F4B-2D8C3A4E4F56"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="56DA048C-70E7-DE90-7D2E-4DF3CE1CED0B" name="Move_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>8BA90184-F99B-0955-DC1C-F6A67DE8CF3C</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2443042D-AEC1-4E61-A393-E0E618597403"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="25DAEBD9-618D-FFD9-FF3A-3F4F48E13146" name="Move_Node_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>EB25831F-F321-981F-DD53-6AE0D3AD3EE4</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6423A9A5-7B0E-1287-4D77-8E833052C693"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="648FF527-7190-336F-C747-31470CCCC85B" name="Move_Play_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>19B2BCD1-957B-604F-5791-6C58424BA5A7</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B67181AA-CA5E-BFEB-E876-C7C0F25AE2B9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8277038D-26D0-C63C-CE42-738D6E37F025" name="Move_Play_FKv2">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 02:28:34 UTC</createdTime>
+<generatorID>40853551-D121-C60E-C023-E2B1889B9334</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C6B33CCD-959C-067E-B24B-ED1FA2D6E9C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

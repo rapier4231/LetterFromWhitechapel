@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F11CE7A1-CC43-06EB-F6F6-FD879657E4D0" name="PlayRoomInfo">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:47:37 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="play_room_info_id" id="62BF9DF6-9688-8CD1-1CDC-7F5A28A452BD">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:47:37 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="game_turn" id="2A16AF96-21C3-10CF-9AA7-038992541A61">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-04-30 06:47:37 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F289B161-B1DC-A399-7DF9-72A106E8A015</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Node_now_node_id" id="831B7A00-9646-1467-4E7B-B08A9FA736AE">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:22:53 UTC</createdTime>
+<generatorID>EB25831F-F321-981F-DD53-6AE0D3AD3EE4</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>67A85693-9CE9-7FF3-3BF3-F00E67E8AF09</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="player_score" id="321219F6-AB5D-3886-9BF1-291DB62D5B77">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:37:09 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="create_time" id="D1936C68-2BCA-8EEE-D289-4B0B29C5612C">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:48:45 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PlayRoom_play_room_id" id="F61606B4-1DBA-8DE1-9A86-6BBEC3B7ACCA">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 08:35:12 UTC</createdTime>
+<generatorID>AE300D5E-699F-E0B8-0E24-B471E8B78EFD</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>5CE30B80-3B9E-23EB-D07D-C454C7CA026A</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PlayRoom_role" id="64771A2F-9CC2-C15C-57E3-F1446C9DC890">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 08:35:16 UTC</createdTime>
+<generatorID>AE300D5E-699F-E0B8-0E24-B471E8B78EFD</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>13E6729D-A998-A258-F51C-1311E9539D24</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0B793BAC-8F12-53CE-D0E9-8DFACB42E41D" name="PlayRoomInfo PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:55:34 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>62BF9DF6-9688-8CD1-1CDC-7F5A28A452BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,17 @@
+도메인
+
+Numeric Id  	NUMERIC	Precision: 7, Scale: 0
+Game turn   	NUMERIC	Precision: 3
+Game Score		NUMERIC	Precision: 5
+Player Score		NUMERIC 	Precision: 1
+Turn Limit Time	NUMERIC 	Precision: 3
+Player Move		NUMERIC 	Precision: 1
+Game Field		NUMERIC 	Precision: 2
+Game Version	VARCHAR	Size: 10
+Node Name   	VARCHAR	Size: 3
+State		  	VARCHAR	Size: 1
+User Name   	VARCHAR	Size: 6
+
+날짜는 logical
+Logical type: 	Datetime
+

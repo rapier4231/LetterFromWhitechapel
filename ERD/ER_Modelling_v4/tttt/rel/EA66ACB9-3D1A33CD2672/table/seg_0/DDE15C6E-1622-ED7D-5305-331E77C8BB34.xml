@@ -1,0 +1,143 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DDE15C6E-1622-ED7D-5305-331E77C8BB34" name="PlayRoomAction">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>F11CE7A1-CC43-06EB-F6F6-FD879657E4D0</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="play_room_action_id" id="01068FF3-D40B-95D0-E222-0A98E5D086B3">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>62BF9DF6-9688-8CD1-1CDC-7F5A28A452BD</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="game_turn" id="9E0688F3-CA15-24CE-A7D5-1FBE3DCF4062">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>2A16AF96-21C3-10CF-9AA7-038992541A61</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>F289B161-B1DC-A399-7DF9-72A106E8A015</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Node_node_id" id="315B3033-85D2-9611-C9C4-5B8BA6A6DE0B">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>831B7A00-9646-1467-4E7B-B08A9FA736AE</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8CB85BBB-9E09-AAFA-4B4B-C148FBD388C9" referredColumn="589CACF0-3E49-EECE-C3AC-8C8B75FB89B8"/>
+</associations>
+</Column>
+<Column name="player_score" id="FA36B29F-C431-A441-B889-A01A4B441BB3">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>321219F6-AB5D-3886-9BF1-291DB62D5B77</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<domain>822F7461-2CC4-A87B-41CA-B35AFED0D055</domain>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="create_time" id="1F7F185F-0AC7-E279-3270-FF39CFA51637">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>D1936C68-2BCA-8EEE-D289-4B0B29C5612C</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PlayRoom_play_room_id" id="D6DE8AB5-270D-86F1-F11B-B8929C222350">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>F0DB2CD7-F8EC-93D3-8494-A435BFDC91A0</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3B4545B1-2AA3-2BFC-EBDC-6D0B49684A35" referredColumn="7AB9EFBE-98F4-CAD3-4736-58700C45BB46"/>
+</associations>
+</Column>
+<Column name="PlayRoom_role" id="69A09056-F9D1-034C-74F1-18C2E8C55D8F">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>C60E0AC4-3EC8-1BE0-9E64-8713589B7238</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<domain>3C514611-1095-0755-592D-3BFBC52767E7</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3B4545B1-2AA3-2BFC-EBDC-6D0B49684A35" referredColumn="70044388-B70C-3880-2336-E404B5ABBD40"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F68D6C3C-CB68-3B58-D030-973C1EC8E14D" name="PlayRoomAction_PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>0B793BAC-8F12-53CE-D0E9-8DFACB42E41D</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01068FF3-D40B-95D0-E222-0A98E5D086B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A0F44AD2-9BE3-87BF-B26E-E9155BEA6950" name="PlayRoomAction_PlayRoom_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>1CE512D2-86F1-F136-3AF9-8F033D0C88BB</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6DE8AB5-270D-86F1-F11B-B8929C222350"/>
+<colUsage columnID="69A09056-F9D1-034C-74F1-18C2E8C55D8F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="855AF98E-6268-1DFC-7959-1DABF15A6A6F" name="PlayRoomAction_Node_FK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-02 02:16:22 UTC</createdTime>
+<generatorID>EB25831F-F321-981F-DD53-6AE0D3AD3EE4</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="315B3033-85D2-9611-C9C4-5B8BA6A6DE0B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

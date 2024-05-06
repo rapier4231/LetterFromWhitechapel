@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F6B90A67-331E-C4DC-29D0-B41BF10CB3FF" name="PlayRoom">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:10:27 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="play_room_id" id="5CE30B80-3B9E-23EB-D07D-C454C7CA026A">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 01:10:37 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Version_version_id" id="CC89881E-C55E-BCF4-3FCF-D3A75F262307">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:10:15 UTC</createdTime>
+<generatorID>CE6D06EA-4E7C-CBF3-EAA6-EB583D73B2C7</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>41FCCFED-38EE-11E3-FCF7-D780B0EBEEDB</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="User_user_id" id="5A998C99-568F-434D-4784-0CA936FCF0F6">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:52:10 UTC</createdTime>
+<generatorID>6E649C8D-9C6A-33E0-4EF2-0D293685E750</generatorID>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<referedAttribute>ABEE747B-5B3F-C488-2724-ECCCED76BEA8</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>9142CE01-F66B-9F35-1991-C13E9BFE3940</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="role" id="13E6729D-A998-A258-F51C-1311E9539D24">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 08:20:51 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6CFB5B97-C365-03B0-D80C-06530D8D3F5E" name="PlayRoom PK">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 07:55:46 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5CE30B80-3B9E-23EB-D07D-C454C7CA026A</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="F408E2DD-FC81-FF9C-ED28-D6C90F09E9AA" name="play_room_role">
+<createdBy>KOSA</createdBy>
+<createdTime>2024-05-01 08:31:25 UTC</createdTime>
+<ownerDesignName>tttt</ownerDesignName>
+<engineerTo>
+<item key="EA66ACB9-7A17-64FF-CCC1-3D1A33CD2672" value="true"/>
+</engineerTo>
+<newElementsIDs>13E6729D-A998-A258-F51C-1311E9539D24,5CE30B80-3B9E-23EB-D07D-C454C7CA026A</newElementsIDs>
+<usedAttributes>
+<attributeRef>13E6729D-A998-A258-F51C-1311E9539D24</attributeRef>
+<attributeRef>5CE30B80-3B9E-23EB-D07D-C454C7CA026A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
