@@ -18,3 +18,12 @@ Wallet_edudb/README
 Wallet_edudb/sqlnet.ora
 Wallet_edudb/tnsnames.ora
 Wallet_edudb/truststore.jks
+Game_LetterFromWh/lib/oracle.properties
+Game_LetterFromWh/lib/wlt/cwallet.sso
+Game_LetterFromWh/lib/wlt/ewallet.p12
+Game_LetterFromWh/lib/wlt/ewallet.pem
+Game_LetterFromWh/lib/wlt/keystore.jks
+Game_LetterFromWh/lib/wlt/ojdbc.properties
+Game_LetterFromWh/lib/wlt/sqlnet.ora
+Game_LetterFromWh/lib/wlt/tnsnames.ora
+Game_LetterFromWh/lib/wlt/truststore.jks
