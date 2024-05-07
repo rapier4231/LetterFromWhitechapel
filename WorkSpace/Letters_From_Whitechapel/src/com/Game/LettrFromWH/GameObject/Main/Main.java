@@ -26,8 +26,8 @@ public class Main extends GameObject{
 	}
 
 	//////////////////////////////////////////
-	
-	public void mainMenu() {
+
+	private void mainMenu() {
 		switch(getSelectMainMenu(false)) {
 			case 1:
 				SceneMng.getInstace().getCurrentScene().getScene().nextScene(SceneType.MatchingScene);
@@ -42,8 +42,8 @@ public class Main extends GameObject{
 				break;
 		}
 	}
-	
-	public int getSelectMainMenu(boolean wrongInput) {
+
+	private int getSelectMainMenu(boolean wrongInput) {
 		PrintMng.getInstace().cpl(TextStore.accessNickName + DBMng.getInstace().getUserNickname());
 		PrintMng.getInstace().pl(TextStore.dividingLine);
 		if(wrongInput) {
@@ -56,8 +56,8 @@ public class Main extends GameObject{
 		PrintMng.getInstace().p(TextStore.userInputTalk);
 		return inputSelectMainMenu();
 	}
-	
-	public int inputSelectMainMenu() {
+
+	private int inputSelectMainMenu() {
 		String userInput = InputMng.getInstace().Input();
 		
 		if(userInput.equals("1")) {

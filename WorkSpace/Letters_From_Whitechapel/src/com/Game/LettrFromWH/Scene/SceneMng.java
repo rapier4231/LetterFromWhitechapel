@@ -68,4 +68,12 @@ public class SceneMng {
 	public void changepreScene() {
 		changeScene(preScene);
 	}
+
+	public void begin(){
+		changeScene(SceneType.VersionCheckScene);
+	}
+
+	public void end(){
+		currentScene.getScene().exit();
+	}
 }

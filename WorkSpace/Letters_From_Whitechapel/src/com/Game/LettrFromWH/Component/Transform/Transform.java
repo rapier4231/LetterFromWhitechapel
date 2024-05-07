@@ -25,8 +25,8 @@ public class Transform extends Component {
 	
 	private int posX;
 	private int posY;
-	
-	public void startPos() {
+
+	private void startPos() {
 		switch(((Unit)getGameObject()).getUnitType()) {
 			case Jack:
 				posX = 0;
@@ -42,7 +42,7 @@ public class Transform extends Component {
 				break;
 		}
 	}
-	
+
 	public boolean movePos(int x, int y) {
 		return true;
 	}

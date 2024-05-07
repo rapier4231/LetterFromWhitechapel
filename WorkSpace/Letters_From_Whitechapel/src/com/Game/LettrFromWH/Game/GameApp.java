@@ -11,8 +11,8 @@ public class GameApp {
         PrintMng.getInstace().cpl(TextStore.hi);
         DBConnection.connect();
         DBConnectNullChecking();
-        SceneMng.getInstace().changeScene(SceneMng.SceneType.VersionCheckScene);
-        GameMng.getInstace().startGame();
+        SceneMng.getInstace().begin();
+        GameMng.getInstace().beginGame();
     }
 
     public void gamePlay() {
@@ -22,7 +22,7 @@ public class GameApp {
     }
 
     public void gameEnd(){
-
+        SceneMng.getInstace().end();
     }
     
     //////////////////////////////////////////////////////

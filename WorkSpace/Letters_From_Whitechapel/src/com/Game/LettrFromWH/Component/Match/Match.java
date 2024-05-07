@@ -5,6 +5,7 @@ import com.Game.LettrFromWH.DB.DBMng;
 import com.Game.LettrFromWH.Input.InputMng;
 import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Text.TextStore;
+import com.Game.LettrFromWH.Time.TimeMng;
 
 public class Match extends Component {
     @Override
@@ -20,6 +21,7 @@ public class Match extends Component {
     @Override
     public void exit() {
         stopThread();
+        TimeMng.getInstace().stopCounting(countingKey);
     }
 
     /////////////////////////////////////////////////////
@@ -29,11 +31,15 @@ public class Match extends Component {
         MatchingAgree,
         WaitForOpponent,
         MatchingSuccess,
-        MatchingState_End;
+        ReMatch,
+        MatchingState_End
     }
 
     private MatchingState matchingState = MatchingState.MatchingState_End;
-    private final MatchThread matchThread = new MatchThread(this);
+
+    private final String countingKey = "Match";
+
+    private final MatchThread matchThread = new MatchThread(this, countingKey);
 
     public void changeMatchingState(MatchingState matchingState){
         if(this.matchingState == matchingState){
@@ -45,6 +51,7 @@ public class Match extends Component {
                 waitForMatchingView();
                 break;
             case MatchingAgree :
+                matchCounting();
                 qAgreeMatchingView();
                 break;
             case WaitForOpponent :
@@ -52,6 +59,9 @@ public class Match extends Component {
                 break;
             case MatchingSuccess :
                 matchingSuccessView();
+                break;
+            case ReMatch:
+                reMatchView();
                 break;
             case MatchingState_End :
                 break;
@@ -62,11 +72,19 @@ public class Match extends Component {
         this.matchingState = matchingState;
     }
 
-    public void waitForMatchingView(){
+    public void startGame(){
+        stopThread();
+    }
+
+    private void waitForMatchingView(){
         PrintMng.getInstace().cpl(TextStore.waitForMatching);
     }
 
-    public void qAgreeMatchingView(){
+    private void matchCounting(){
+        TimeMng.getInstace().startCounting(countingKey,10.f);
+    }
+
+    private void qAgreeMatchingView(){
         PrintMng.getInstace().cpl(TextStore.qAgreeMatching);
         PrintMng.getInstace().pl(TextStore.yesOrNo);
         PrintMng.getInstace().p(TextStore.userInputTalk);
@@ -84,32 +102,31 @@ public class Match extends Component {
         }
     }
 
-    public void waitForOpponentView(){
+    private void waitForOpponentView(){
         PrintMng.getInstace().cpl(TextStore.waitForOpponent);
     }
 
-    public void matchingSuccessView(){
+    private void matchingSuccessView(){
         PrintMng.getInstace().cpl(TextStore.matchingSuccess);
     }
 
-    public void agreeMatching(){
+    private void agreeMatching(){
         DBMng.getInstace().agreeMatching();
     }
+    private void reMatchView() {
 
-    public void cancelMatching(){
+    }
+
+    private void cancelMatching(){
         DBMng.getInstace().cancelMatching();
         stopThread();
     }
 
-    public void startGame(){
-        stopThread();
-    }
-
-    public void startThread(){
+    private void startThread(){
         matchThread.start();
     }
 
-    public void stopThread(){
+    private void stopThread(){
         matchThread.setRunThread(false);
     }
 }

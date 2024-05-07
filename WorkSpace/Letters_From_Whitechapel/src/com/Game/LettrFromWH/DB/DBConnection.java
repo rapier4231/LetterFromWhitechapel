@@ -11,16 +11,13 @@ public class DBConnection {
 
 	private DBConnection() {
 	}
-
 	private static Connection conn;
-	private static DBConnectionThread connectionThread;
+	private static final float reConnectSeconds = 3.5f;
 
 	public static void connect(){
 		while (conn == null) {
-			connectionThread = new DBConnectionThread();
-			connectionThread.start();
-			
-			TimeMng.getInstace().delay(4000);
+			new DBConnectionThread().start();
+			TimeMng.getInstace().delayS(reConnectSeconds);
 			if(conn == null) {
 				PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.reTryServerConnection);
 			}
@@ -30,16 +27,16 @@ public class DBConnection {
 	public static void startConnection() {
 		PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.startServerConnection);
 	}
-	
+
 	public static void readData() {
 		PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.readServerConnectData);
 	}
-	
-	public static void tryConnection() {	
+
+	public static void tryConnection() {
 		PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.tryServerConnection);
 	}
-	
-	public static void successConnection(Connection conn) {	
+
+	public static void successConnection(Connection conn) {
 		if(DBConnection.conn != null) {
 			try {
 				conn.close();

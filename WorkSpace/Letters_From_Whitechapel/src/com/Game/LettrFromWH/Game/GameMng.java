@@ -23,8 +23,9 @@ public class GameMng {
 
     public boolean getGameProgress(){return gameProgress;}
     
-    public void startGame() {
+    public void beginGame() {
     	gameProgress = true;
     }
-    
+
+    public void endGame(){gameProgress = false;}
 }

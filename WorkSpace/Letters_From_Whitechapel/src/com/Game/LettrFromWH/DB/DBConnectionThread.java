@@ -9,11 +9,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.Game.LettrFromWH.MyThread.MyThread;
 import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Text.TextStore;
 
-public class DBConnectionThread extends Thread {
-	
+public class DBConnectionThread extends MyThread {
 	private Connection conn;
 	
 	public Connection getConnection() {return conn;}

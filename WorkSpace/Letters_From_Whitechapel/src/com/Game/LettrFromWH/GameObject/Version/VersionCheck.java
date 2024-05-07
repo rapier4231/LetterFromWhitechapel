@@ -1,6 +1,7 @@
 package com.Game.LettrFromWH.GameObject.Version;
 
 import com.Game.LettrFromWH.DB.DBMng;
+import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.GameObject.GameObject;
 import com.Game.LettrFromWH.Scene.SceneMng;
 import com.Game.LettrFromWH.Text.TextStore;
@@ -17,7 +18,7 @@ public class VersionCheck extends GameObject {
 	public void play() {
 		if(!DBMng.getInstace().checkClientVersion()) {
 			System.out.println(TextStore.versionCheckFalied);
-			System.exit(0);
+			GameMng.getInstace().endGame();
 		}
 		SceneMng.getInstace().getCurrentScene().getScene().nextScene(SceneMng.SceneType.LoginScene);
 	}
