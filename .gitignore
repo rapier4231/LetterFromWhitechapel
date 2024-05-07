@@ -27,3 +27,12 @@ Game_LetterFromWh/lib/wlt/ojdbc.properties
 Game_LetterFromWh/lib/wlt/sqlnet.ora
 Game_LetterFromWh/lib/wlt/tnsnames.ora
 Game_LetterFromWh/lib/wlt/truststore.jks
+Game.exe/nothing/lib/oracle.properties
+Game.exe/nothing/lib/wlt/cwallet.sso
+Game.exe/nothing/lib/wlt/ewallet.p12
+Game.exe/nothing/lib/wlt/ewallet.pem
+Game.exe/nothing/lib/wlt/keystore.jks
+Game.exe/nothing/lib/wlt/ojdbc.properties
+Game.exe/nothing/lib/wlt/sqlnet.ora
+Game.exe/nothing/lib/wlt/tnsnames.ora
+Game.exe/nothing/lib/wlt/truststore.jks

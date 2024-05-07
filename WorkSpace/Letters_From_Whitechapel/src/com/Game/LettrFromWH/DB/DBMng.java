@@ -38,13 +38,13 @@ public class DBMng {
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.registerOutParameter(1, OracleType.VARCHAR2);
 			
+			System.out.println("Now Version Checking...");
+			
 			//실행
 			castmt.execute();
 			
 			//결과물 가져오기
 			version = (String)castmt.getObject(1);
-			
-			PrintMng.getInstace().cpl("Client version : " + version + "ver");
 			
 		    castmt.close();
 

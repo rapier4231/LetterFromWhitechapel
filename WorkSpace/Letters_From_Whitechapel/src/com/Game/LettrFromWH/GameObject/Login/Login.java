@@ -6,6 +6,7 @@ import com.Game.LettrFromWH.Input.InputMng;
 import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Scene.SceneMng;
 import com.Game.LettrFromWH.Text.TextStore;
+import com.Game.LettrFromWH.Time.TimeMng;
 import com.Game.LettrFromWH.User.UserMng;
 
 public class Login extends GameObject {
@@ -47,7 +48,9 @@ public class Login extends GameObject {
 
 	// 계정이 있다고 유저가 선택하면 true, 아니면 false
 	public boolean questionHaveAccount() {
-		PrintMng.getInstace().cpl(TextStore.systemTalk + TextStore.qCheckAccount);
+		PrintMng.getInstace().cpl(TextStore.clientVersion + TextStore.version + "v");
+		PrintMng.getInstace().pl(TextStore.dividingLine);
+		PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.qCheckAccount);
 		PrintMng.getInstace().pl(TextStore.yesOrNo);
 		PrintMng.getInstace().p(TextStore.userInputTalk);
 
@@ -156,6 +159,7 @@ public class Login extends GameObject {
 	// 로그인 성공 메세지
 	public void loginSuccess() {
 		PrintMng.getInstace().cpl(TextStore.systemTalk + DBMng.getInstace().getUserNickname() + TextStore.loginSuccess);
+		TimeMng.getInstace().delay(1000);
 	}
 
 }

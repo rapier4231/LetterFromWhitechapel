@@ -22,7 +22,9 @@ public abstract class Scene {
 	public void play() {
 		
 		 for (Map.Entry<String, GameObject> entry : gameObjectMap.entrySet()) {
-			 entry.getValue().play();
+			 if(entry.getValue().getIsPlaying()) {
+				 entry.getValue().play();
+			 }
 		 }
 		 
 	}

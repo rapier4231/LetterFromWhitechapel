@@ -1,12 +1,9 @@
 package com.Game.LettrFromWH.Component.Match;
 
 import com.Game.LettrFromWH.Component.Component;
-import com.Game.LettrFromWH.Component.CreateMap.CreateMap;
 import com.Game.LettrFromWH.DB.DBMng;
-import com.Game.LettrFromWH.GameObject.Matching.Matching;
 import com.Game.LettrFromWH.Input.InputMng;
 import com.Game.LettrFromWH.Printer.PrintMng;
-import com.Game.LettrFromWH.Scene.SceneMng;
 import com.Game.LettrFromWH.Text.TextStore;
 
 public class Match extends Component {
@@ -106,7 +103,6 @@ public class Match extends Component {
 
     public void startGame(){
         stopThread();
-        ((CreateMap)SceneMng.getInstace().getCurrentScene().getScene().getGameObject("Matching").getGameObject("CreateMap")).createMap();
     }
 
     public void startThread(){

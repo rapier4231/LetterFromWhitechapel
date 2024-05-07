@@ -10,13 +10,20 @@ public class TextStore {
 	public static String yes = "1";
 	public static String no = "2";
 	public static String wrongInput = "잘못 입력하셨습니다.";
+	public static String dividingLine = "================================";
 	
 	//Start//
 	public static String hi = "만나서 반갑습니다. 잠시만 기다려주세요.";
+	public static String startServerConnection = "서버 연결 시작";
+	public static String readServerConnectData = "서버 정보 확인";
+	public static String tryServerConnection = "서버 연결 시도";
+	public static String successServerConnection = "서버 연결 성공";
+	public static String reTryServerConnection = "일정 시간 연결이 되지 않아, 재시도 합니다.";
 	
 	//client//
 	public static String version = "0.0.0";
 	public static String versionCheckFalied = "최신 버전을 다운로드 받아주세요.";
+	public static String clientVersion = "Client version : ";
 	
 	//Login//
 	public static String qCheckAccount = "계정이 있으십니까?";
@@ -28,6 +35,7 @@ public class TextStore {
 	public static String loginSuccess = "님 환영합니다.";
 	
 	//Main//
+	public static String accessNickName = "이름 : ";
 	public static String mainMenu = "1.매칭 시작 2.로그 아웃 3.게임 종료";
 
 	//Matching//

@@ -1,5 +1,7 @@
 package com.Game.LettrFromWH.Game;
 
+import com.Game.LettrFromWH.GameObject.Unit.Unit.UnitType;
+
 public class GameMng {
 
     //Singleton
@@ -16,10 +18,13 @@ public class GameMng {
     /////////////////////////////////////////////////////
 
     private boolean gameProgress = false;
+    
+    private UnitType nowUnitType = UnitType.UnitType_End;
 
     public boolean getGameProgress(){return gameProgress;}
-
+    
     public void startGame() {
-        gameProgress = true;
+    	gameProgress = true;
     }
+    
 }

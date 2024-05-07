@@ -9,6 +9,9 @@ import com.Game.LettrFromWH.Printer.PrintMng;
 public abstract class GameObject {
 
 	Map<String, Component> componentMap = new HashMap<>();
+	private boolean isPlaying = true;
+	
+	public boolean getIsPlaying() {return isPlaying;}
 	
 	public void init() {
 		inputComponent();
@@ -19,7 +22,9 @@ public abstract class GameObject {
 	
 	public  void play(){
 		for (Map.Entry<String, Component> entry : componentMap.entrySet()) {
-			entry.getValue().play();
+			if(entry.getValue().getIsPlaying()){
+				entry.getValue().play();
+			}
 		}
 	}
 	
@@ -35,7 +40,7 @@ public abstract class GameObject {
 
 	}
 
-	public void setGameObject(String key, Component component) {
+	public void setComponent(String key, Component component) {
 		if(component == null) {
 			PrintMng.getInstace().pl("GameObject 넣을 컴포넌트 널입니다.");
 			return;
@@ -46,14 +51,23 @@ public abstract class GameObject {
 			return;
 		}
 		componentMap.put(key, component);
+		component.setGameObject(this);
 	}
 
-	public Component getGameObject(String key) {
+	public Component getComponent(String key) {
 		if(!componentMap.containsKey(key)) {
 			PrintMng.getInstace().pl("GameObject에서 가져올려 하는 객체의 키 값이 없슴돠.");
 			return null;
 		}
 
 		return componentMap.get(key);
+	}
+	
+	public void outPlay() {
+		isPlaying = false;
+	}
+	
+	public void inPlay() {
+		isPlaying = true;
 	}
 }

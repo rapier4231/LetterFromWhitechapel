@@ -1,5 +1,6 @@
 package com.Game.LettrFromWH.GameObject.Main;
 
+import com.Game.LettrFromWH.DB.DBMng;
 import com.Game.LettrFromWH.GameObject.GameObject;
 import com.Game.LettrFromWH.Input.InputMng;
 import com.Game.LettrFromWH.Printer.PrintMng;
@@ -43,12 +44,14 @@ public class Main extends GameObject{
 	}
 	
 	public int getSelectMainMenu(boolean wrongInput) {
+		PrintMng.getInstace().cpl(TextStore.accessNickName + DBMng.getInstace().getUserNickname());
+		PrintMng.getInstace().pl(TextStore.dividingLine);
 		if(wrongInput) {
-			PrintMng.getInstace().cpl(TextStore.systemTalk + TextStore.wrongInput);
+			PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.wrongInput);
 			PrintMng.getInstace().cp(TextStore.mainMenu);
 		}
 		else {
-			PrintMng.getInstace().cpl(TextStore.mainMenu);			
+			PrintMng.getInstace().pl(TextStore.mainMenu);			
 		}
 		PrintMng.getInstace().p(TextStore.userInputTalk);
 		return inputSelectMainMenu();
