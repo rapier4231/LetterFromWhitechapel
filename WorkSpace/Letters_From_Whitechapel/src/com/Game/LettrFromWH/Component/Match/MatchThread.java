@@ -35,30 +35,24 @@ public class MatchThread extends MyThread {
     private void matchingFunc() {
         switch(DBMng.getInstace().getWaitState()) {
             //Wait Table에 없음
-            case -1:
+            case 0:
                 match.changeMatchingState(Match.MatchingState.WaitForMatching);
                 startMatching();
                 break;
             //매칭 대기 중
-            case 0:
+            case 1:
                 match.changeMatchingState(Match.MatchingState.WaitForMatching);
                 waitMatching();
                 break;
             //매칭 되었음. 수락 요청을 내보낼 것.
-            case 1:
+            case 2:
                 match.changeMatchingState(Match.MatchingState.MatchingAgree);
-                cancelCheking();
+                successMatchingCheking();
                 break;
             //상대의 수락 요청을 기다리는 중 (나는 수락 했음)
-            case 2:
-                match.changeMatchingState(Match.MatchingState.WaitForOpponent);
-                cancelCheking();
-                break;
-            //상대도 수락했으니, 게임을 시작할 것. (게임 방에 내가 있음)
             case 3:
-                match.changeMatchingState(Match.MatchingState.MatchingSuccess);
-                startGame();
-                runThread = false;
+                match.changeMatchingState(Match.MatchingState.WaitForOpponent);
+                successMatchingCheking();
                 break;
             default:
                 runThread = false;
@@ -74,13 +68,9 @@ public class MatchThread extends MyThread {
         DBMng.getInstace().updateMatching();
     }
 
-    private void startGame(){
-        match.startGame();
-    }
-
-    private void cancelCheking(){
+    private void successMatchingCheking(){
         if(TimeMng.getInstace().checkCounting(countingKey)){
-
+        	match.qSuccessMatching();
         }
     }
 }

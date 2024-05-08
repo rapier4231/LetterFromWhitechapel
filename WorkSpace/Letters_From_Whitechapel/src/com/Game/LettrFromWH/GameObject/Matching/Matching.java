@@ -1,7 +1,6 @@
 package com.Game.LettrFromWH.GameObject.Matching;
 
 import com.Game.LettrFromWH.Component.Match.Match;
-import com.Game.LettrFromWH.FieldMng.FieldMng;
 import com.Game.LettrFromWH.GameObject.GameObject;
 import com.Game.LettrFromWH.Scene.SceneMng;
 
@@ -29,8 +28,7 @@ public class Matching extends GameObject {
 		setComponent("Match", new Match());
 	}
 
-	public void createMap() {
-		FieldMng.getInstace().createField();
+	public void mathingSuccess() {
 		SceneMng.getInstace().changeScene(SceneMng.SceneType.GameScene);
 	}
 	

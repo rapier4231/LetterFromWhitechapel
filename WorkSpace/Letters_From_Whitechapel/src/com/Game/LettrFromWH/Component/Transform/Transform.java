@@ -1,40 +1,45 @@
 package com.Game.LettrFromWH.Component.Transform;
 
 import com.Game.LettrFromWH.Component.Component;
-import com.Game.LettrFromWH.FieldMng.FieldMng;
-import com.Game.LettrFromWH.GameObject.Unit.Unit;
+import com.Game.LettrFromWH.DB.DBMng;
+import com.Game.LettrFromWH.GameObject.GameField.GameField;
+import com.Game.LettrFromWH.GameObject.Unit.Unit.UnitType;
+import com.Game.LettrFromWH.Scene.SceneMng;
 
 public class Transform extends Component {
 
+	private final GameField gameField = (GameField)SceneMng.getInstace().getCurrentScene().getScene().getGameObject("GameField");
+	
+	private final UnitType unitType;
+	
+	private final int moveCount = DBMng.getInstace().getMoveCount();
+	
+	private String posX;
+	private String posY;
+	
+	public Transform(UnitType unitType) {
+		this.unitType = unitType;
+	}
+
+	public String getPos() {
+		return posX + posY;
+	}
+	
 	@Override
 	public void init() {
+		super.init();
 		startPos();
 	}
-
-	@Override
-	public void play() {
-
-	}
-
-	@Override
-	public void exit() {
-
-	}
 	
-	//////////////////////////////////////////////////
-	
-	private int posX;
-	private int posY;
-
 	private void startPos() {
-		switch(((Unit)getGameObject()).getUnitType()) {
+		switch(unitType) {
 			case Jack:
-				posX = 0;
-				posY = 0;
+				posX = "a";
+				posY = "1";
 				break;
 			case Police1:
-				posX = FieldMng.getInstace().getMapX() - 1;
-				posY = FieldMng.getInstace().getMapY() - 1;
+				posX = gameField.getLastPosX();
+				posY = gameField.getLastPosY();
 				break;
 			case Police2:
 				break;
@@ -46,5 +51,4 @@ public class Transform extends Component {
 	public boolean movePos(int x, int y) {
 		return true;
 	}
-	
 }

@@ -9,11 +9,11 @@ public abstract class Component {
 	
 	public boolean getIsPlaying() {return isPlaying;}
 	
-    public abstract void init();
+    public void init() { }
 
-    public abstract void play();
+    public void play() { }
 
-    public abstract void exit();
+    public void exit() { }
 
 	public GameObject getGameObject() {
 		return gameObject;

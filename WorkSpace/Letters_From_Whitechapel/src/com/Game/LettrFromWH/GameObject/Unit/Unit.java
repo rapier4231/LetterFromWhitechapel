@@ -1,5 +1,6 @@
 package com.Game.LettrFromWH.GameObject.Unit;
 
+import com.Game.LettrFromWH.Component.Transform.Transform;
 import com.Game.LettrFromWH.GameObject.GameObject;
 
 public class Unit extends GameObject {
@@ -7,6 +8,8 @@ public class Unit extends GameObject {
 	public Unit(UnitType unitType) {
 		this.unitType = unitType;
 	}
+	
+	////////////////////////////
 	
 	@Override
 	public void init() {
@@ -23,6 +26,12 @@ public class Unit extends GameObject {
 		super.exit();
 	}
 	
+	@Override
+	public void inputComponent() {
+		super.inputComponent();
+		setComponent("Transform", new Transform(unitType));
+	}
+	
 	///////////////////////////
 
 	public enum UnitType{
@@ -33,7 +42,5 @@ public class Unit extends GameObject {
 	}
 	
 	private final UnitType unitType;
-	
-	public UnitType getUnitType() {return unitType;}
 	
 }

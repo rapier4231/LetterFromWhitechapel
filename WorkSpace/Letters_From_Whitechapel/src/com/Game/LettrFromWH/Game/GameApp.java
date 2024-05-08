@@ -22,6 +22,7 @@ public class GameApp {
     }
 
     public void gameEnd(){
+    	GameMng.getInstace().endGame();
         SceneMng.getInstace().end();
     }
     

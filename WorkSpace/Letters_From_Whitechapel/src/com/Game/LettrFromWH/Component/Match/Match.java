@@ -2,30 +2,14 @@ package com.Game.LettrFromWH.Component.Match;
 
 import com.Game.LettrFromWH.Component.Component;
 import com.Game.LettrFromWH.DB.DBMng;
+import com.Game.LettrFromWH.GameObject.Matching.Matching;
 import com.Game.LettrFromWH.Input.InputMng;
 import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Text.TextStore;
 import com.Game.LettrFromWH.Time.TimeMng;
 
 public class Match extends Component {
-    @Override
-    public void init() {
-        startThread();
-    }
-
-    @Override
-    public void play() {
-
-    }
-
-    @Override
-    public void exit() {
-        stopThread();
-        TimeMng.getInstace().stopCounting(countingKey);
-    }
-
-    /////////////////////////////////////////////////////
-
+	
     public enum MatchingState{
         WaitForMatching,
         MatchingAgree,
@@ -40,6 +24,39 @@ public class Match extends Component {
     private final String countingKey = "Match";
 
     private final MatchThread matchThread = new MatchThread(this, countingKey);
+
+    public void finishMatching(){
+        stopThread();
+    }
+    
+	public void qSuccessMatching() {
+    	if(DBMng.getInstace().qSuccessMatching()) {
+    		finishMatching();
+    		changeMatchingState(MatchingState.MatchingState_End);
+    		((Matching)getGameObject()).mathingSuccess();
+    	}
+	}
+    
+    @Override
+    public void init() {
+    	super.init();
+        startThread();
+    }
+    
+    private void startThread(){
+        matchThread.start();
+    }
+
+    @Override
+    public void exit() {
+    	super.exit();
+        stopThread();
+        TimeMng.getInstace().stopCounting(countingKey);
+    }
+    
+    private void stopThread(){
+        matchThread.setRunThread(false);
+    }
 
     public void changeMatchingState(MatchingState matchingState){
         if(this.matchingState == matchingState){
@@ -72,16 +89,12 @@ public class Match extends Component {
         this.matchingState = matchingState;
     }
 
-    public void startGame(){
-        stopThread();
-    }
-
     private void waitForMatchingView(){
         PrintMng.getInstace().cpl(TextStore.waitForMatching);
     }
 
     private void matchCounting(){
-        TimeMng.getInstace().startCounting(countingKey,10.f);
+        TimeMng.getInstace().startCounting(countingKey,DBMng.getInstace().getMatchingWaitTime());
     }
 
     private void qAgreeMatchingView(){
@@ -120,13 +133,5 @@ public class Match extends Component {
     private void cancelMatching(){
         DBMng.getInstace().cancelMatching();
         stopThread();
-    }
-
-    private void startThread(){
-        matchThread.start();
-    }
-
-    private void stopThread(){
-        matchThread.setRunThread(false);
     }
 }

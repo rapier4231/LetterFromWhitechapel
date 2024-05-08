@@ -45,6 +45,11 @@ public class TextStore {
 
 	public static String matchingSuccess = "게임 방을 생성 중입니다. 잠시만 기다려주세요.";
 	
+	//Game//
+	public static String trunTalk = "Turn : ";
+	public static String actionTalk = "Action : ";
+	
+	
 	//Exit//
 	public static String Bye = "다음에 다시 뵙기를 기대하겠습니다.";
 	

@@ -1,6 +1,6 @@
 package com.Game.LettrFromWH.Game;
 
-import com.Game.LettrFromWH.GameObject.Unit.Unit.UnitType;
+import com.Game.LettrFromWH.Component.Transform.Transform;
 
 public class GameMng {
 
@@ -18,8 +18,10 @@ public class GameMng {
     /////////////////////////////////////////////////////
 
     private boolean gameProgress = false;
-    
-    private UnitType nowUnitType = UnitType.UnitType_End;
+
+    private int nowTurnNumber = 1;
+    private int lastTurnNumber;
+    private int turnLimitTimeSeconds;
 
     public boolean getGameProgress(){return gameProgress;}
     
@@ -28,4 +30,27 @@ public class GameMng {
     }
 
     public void endGame(){gameProgress = false;}
+
+	public void setTurnInfo(int lastTurnNumber, int turnLimitTimeSeconds) {
+		this.lastTurnNumber = lastTurnNumber;
+		this.turnLimitTimeSeconds = turnLimitTimeSeconds;
+		
+	}
+
+	public int getTurn() {
+		return nowTurnNumber;
+	}
+
+	public int getLastTurn() {
+		return lastTurnNumber;
+	}
+
+	public int getTurnLimitTimeSeconds() {
+		return turnLimitTimeSeconds;
+	}
+	
+	public String getAction() {
+
+		return null;
+	}
 }

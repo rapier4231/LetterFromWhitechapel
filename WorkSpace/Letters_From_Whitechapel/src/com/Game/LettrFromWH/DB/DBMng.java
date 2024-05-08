@@ -2,13 +2,15 @@ package com.Game.LettrFromWH.DB;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import com.Game.LettrFromWH.Printer.PrintMng;
+import com.Game.LettrFromWH.Game.GameMng;
+import com.Game.LettrFromWH.GameObject.GameField.GameField;
 import com.Game.LettrFromWH.Text.TextStore;
 import com.Game.LettrFromWH.User.UserMng;
 
 import oracle.jdbc.OracleType;
+import oracle.jdbc.OracleTypes;
 
 public class DBMng {
 
@@ -176,6 +178,7 @@ public class DBMng {
 
 	//Matching//
 	public int getWaitState() {
+		int waitState = -1;
 		try {
 			castmt = conn.prepareCall("{ call GetPlayerState(?,?) }");
 			
@@ -187,7 +190,7 @@ public class DBMng {
 			castmt.execute();
 
 			String str = castmt.getString(2);
-			int waitState = Integer.MAX_VALUE;
+			
 			if(str.equals("Player not found")){
 				waitState = -1;
 			}
@@ -199,20 +202,17 @@ public class DBMng {
 			}
 
 			castmt.close();
-
-			return waitState;
-
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return -1;
+		return waitState;
 	}
 
 	public boolean startMatching(){
 		try {
-			castmt = conn.prepareCall("{ call InsertIntoPlayWait(?) }");
+			castmt = conn.prepareCall("{ call UpdatePlayerStateToOne(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
@@ -234,7 +234,7 @@ public class DBMng {
 
 	public boolean updateMatching(){
 		try {
-			castmt = conn.prepareCall("{ call UpdatePlayWaitUpdateTime(?) }");
+			castmt = conn.prepareCall("{ call UpdatePlayerTime(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
@@ -256,7 +256,7 @@ public class DBMng {
 
 	public boolean agreeMatching(){
 		try {
-			castmt = conn.prepareCall("{ call UpdatePlayerStateTo2(?) }");
+			castmt = conn.prepareCall("{ call UpdatePlayerStateToThree(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
@@ -275,10 +275,50 @@ public class DBMng {
 
 		return false;
 	}
-
-	public boolean cancelMatching(){
+	
+	public int getMatchingWaitTime() {
+		int matchingWaitTime = 0;
 		try {
-			castmt = conn.prepareCall("{ call CancelMatch(?,?) }");
+			castmt = conn.prepareCall("{ call GetMatchingWaitTime(?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.registerOutParameter(1, OracleType.NUMBER);
+
+			//실행
+			castmt.execute();
+
+			matchingWaitTime = castmt.getInt(1);
+
+			castmt.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return matchingWaitTime;
+	}
+
+	public void cancelMatching(){
+		try {
+			castmt = conn.prepareCall("{ call UpdatePlayerStateToZero(?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+
+			//실행
+			castmt.execute();
+			
+			castmt.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean qSuccessMatching() {
+		boolean success = false;
+		try {
+			castmt = conn.prepareCall("{ call ????????????(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
@@ -287,22 +327,109 @@ public class DBMng {
 			//실행
 			castmt.execute();
 
-			String userError = castmt.getString(2);
+			// = castmt.get();
 
 			castmt.close();
-
-			if(userError.isEmpty()){
-				System.out.println(userError);
-				return false;
-			}
-
-			return true;
 
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return false;
+		return success;
+	}
+	
+	//GameInfo
+	public int getMoveCount() {
+		int moveCount = 0;
+		try {
+			castmt = conn.prepareCall("{ call ????????????(?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.registerOutParameter(1, OracleType.NUMBER);
+
+			//실행
+			castmt.execute();
+
+			moveCount = castmt.getInt(1);
+
+			castmt.close();
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return moveCount;
+	}
+	
+	public void getTurnInfo() {
+		try {
+			castmt = conn.prepareCall("{ call ???????(?, ?) }");
+			
+			castmt.registerOutParameter(1, OracleTypes.CURSOR);//crs 받을 것
+			
+			castmt.execute();
+			
+			ResultSet rs;
+			rs = (ResultSet) castmt.getObject(1);
+			
+			GameMng.getInstace().setTurnInfo(Integer.parseInt(rs.getString("last_turn_number")),Integer.parseInt(rs.getString("turn_limit_time_s")));
+
+			rs.close();
+		    castmt.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	//Field
+	public ResultSet settingField(GameField gameField) {
+		try {
+			castmt = conn.prepareCall("{ call ???????(?, ?, ?) }");
+			
+			castmt.registerOutParameter(1, OracleTypes.CURSOR);//crs 받을 것
+			
+			castmt.execute();
+			
+			ResultSet rs;
+			rs = (ResultSet) castmt.getObject(1);
+		    
+			gameField.setField(rs);
+			
+		    rs.close();
+		    castmt.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	//Turn
+	public boolean getMyTurn() {
+		boolean myTurn = false;
+		try {
+			castmt = conn.prepareCall("{ call ????????????(?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.registerOutParameter(1, OracleType.VARCHAR2);
+
+			//실행
+			castmt.execute();
+
+			myTurn = castmt.getBoolean(1);
+
+			castmt.close();
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return myTurn;
 	}
 }

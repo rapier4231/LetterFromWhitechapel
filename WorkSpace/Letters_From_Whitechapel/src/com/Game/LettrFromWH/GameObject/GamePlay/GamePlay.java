@@ -1,27 +1,10 @@
 package com.Game.LettrFromWH.GameObject.GamePlay;
 
 import com.Game.LettrFromWH.GameObject.GameObject;
+import com.Game.LettrFromWH.Input.InputMng;
 
 public class GamePlay extends GameObject {
 
-	@Override
-	public void init() {
-		super.init();
-	}
-
-	@Override
-	public void play() {
-		super.play();
-		gameStart();
-	}
-
-	@Override
-	public void exit() {
-		super.exit();
-	}
-	
-	///////////////////////////
-	
 	public enum GameState{
 		opponentsTurn,
 		updateField,
@@ -32,6 +15,21 @@ public class GamePlay extends GameObject {
 	}
 	
 	private GameState gameState = GameState.GameState_End;
+	private GamePlayThread gamePlayThread;
+
+	@Override
+	public void init() {
+		super.init();
+		waitMyTrun();
+	}
+	
+	public void myTrun() {
+		changeGameState(GameState.updateField);
+	}
+
+	public void userInput() {
+		InputMng.getInstace().Input();
+	}
 	
 	public void changeGameState(GameState gameState) {
 		if(this.gameState == gameState) {
@@ -49,8 +47,10 @@ public class GamePlay extends GameObject {
 				move();
 				break;
 			case UseAbilities:
+				useAbility();
 				break;
 			case SendData:
+				sendData();
 				break;
 			case GameState_End:
 				break;
@@ -71,8 +71,18 @@ public class GamePlay extends GameObject {
 		
 	}
 	
-
-	private void gameStart(){
+	private void useAbility() {
 		
 	}
+
+	private void sendData() {
+		
+		waitMyTrun();
+	}
+	
+	private void waitMyTrun() {
+		gamePlayThread = new GamePlayThread(this);
+		gamePlayThread.start();
+	}
+
 }

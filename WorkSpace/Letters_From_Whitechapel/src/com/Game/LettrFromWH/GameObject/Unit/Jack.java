@@ -1,5 +1,7 @@
 package com.Game.LettrFromWH.GameObject.Unit;
 
+import com.Game.LettrFromWH.Component.Ability.JackAbility;
+
 public class Jack extends Unit {
 
 	public Jack(UnitType unitType) {
@@ -21,6 +23,10 @@ public class Jack extends Unit {
 		super.exit();
 	}
 	
+	public void inputComponent() {
+		super.inputComponent();
+		setComponent("Ability", new JackAbility());
+	}
 	///////////////////////////
 	
 }
