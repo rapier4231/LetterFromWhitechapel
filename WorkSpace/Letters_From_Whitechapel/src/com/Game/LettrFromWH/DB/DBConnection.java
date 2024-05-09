@@ -19,6 +19,8 @@ public class DBConnection {
 			new DBConnectionThread().start();
 			TimeMng.getInstace().delayS(reConnectSeconds);
 			if(conn == null) {
+				PrintMng.getInstace().endDelayPrint();
+				PrintMng.getInstace().changeLine();
 				PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.reTryServerConnection);
 			}
 		}
@@ -33,19 +35,23 @@ public class DBConnection {
 	}
 
 	public static void tryConnection() {
-		PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.tryServerConnection);
+		PrintMng.getInstace().p(TextStore.systemTalk + TextStore.tryServerConnection);
+		PrintMng.getInstace().beginDelayPrint(".",1);
 	}
 
 	public static void successConnection(Connection conn) {
 		if(DBConnection.conn != null) {
 			try {
 				conn.close();
+				PrintMng.getInstace().endDelayPrint();
 			} catch (SQLException e) {
 //				e.printStackTrace();
 			}
 			return;
 		}
 		DBConnection.conn = conn;
+		PrintMng.getInstace().endDelayPrint();
+		PrintMng.getInstace().changeLine();
 		PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.successServerConnection);
 	}
 	

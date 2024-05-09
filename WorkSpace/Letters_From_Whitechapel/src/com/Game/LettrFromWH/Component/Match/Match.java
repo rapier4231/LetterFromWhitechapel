@@ -30,11 +30,18 @@ public class Match extends Component {
     }
     
 	public void qSuccessMatching() {
-    	if(DBMng.getInstace().qSuccessMatching()) {
-    		finishMatching();
-    		changeMatchingState(MatchingState.MatchingState_End);
-    		((Matching)getGameObject()).mathingSuccess();
-    	}
+		finishMatching();
+//    	if(DBMng.getInstace().qSuccessMatching()) {
+//    		changeMatchingState(MatchingState.MatchingSuccess);
+//    		((Matching)getGameObject()).mathingSuccess();
+//    	}
+//    	else {
+//    		changeMatchingState(MatchingState.ReMatch);
+//    	}
+		
+		//임시
+		changeMatchingState(MatchingState.MatchingSuccess);
+		((Matching)getGameObject()).mathingSuccess();
 	}
     
     @Override
@@ -57,7 +64,7 @@ public class Match extends Component {
     private void stopThread(){
         matchThread.setRunThread(false);
     }
-
+    
     public void changeMatchingState(MatchingState matchingState){
         if(this.matchingState == matchingState){
             return;
@@ -87,6 +94,12 @@ public class Match extends Component {
         }
 
         this.matchingState = matchingState;
+    }
+    
+    public void cancelMatching(){
+        DBMng.getInstace().cancelMatching();
+        stopThread();
+        ((Matching)getGameObject()).mathingCancel();
     }
 
     private void waitForMatchingView(){
@@ -126,12 +139,10 @@ public class Match extends Component {
     private void agreeMatching(){
         DBMng.getInstace().agreeMatching();
     }
+    
     private void reMatchView() {
-
-    }
-
-    private void cancelMatching(){
-        DBMng.getInstace().cancelMatching();
-        stopThread();
+    	PrintMng.getInstace().cpl(TextStore.reMatch);
+    	TimeMng.getInstace().delayS(3);
+    	startThread();
     }
 }

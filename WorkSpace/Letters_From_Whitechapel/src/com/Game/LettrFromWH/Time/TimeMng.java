@@ -28,6 +28,16 @@ public class TimeMng {
             throw new RuntimeException(e);
         }
     }
+	
+	public void delay(long milliSeconds) {
+        try {
+            Thread.sleep(milliSeconds);
+        } 
+        catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+	
     public void startCounting(String key, float countSeconds) {
         CountingThread countingThread = new CountingThread(key,countSeconds);
         countingThread.start();

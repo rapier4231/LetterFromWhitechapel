@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.GameObject.GameField.GameField;
+import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Text.TextStore;
 import com.Game.LettrFromWH.User.UserMng;
 
@@ -40,10 +41,13 @@ public class DBMng {
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.registerOutParameter(1, OracleType.VARCHAR2);
 			
-			System.out.println("Now Version Checking...");
+			System.out.print("Now Version Checking");
+			PrintMng.getInstace().beginDelayPrint(".",1);
 			
 			//실행
 			castmt.execute();
+			
+			PrintMng.getInstace().endDelayPrint();
 			
 			//결과물 가져오기
 			version = (String)castmt.getObject(1);
@@ -191,10 +195,10 @@ public class DBMng {
 
 			String str = castmt.getString(2);
 			
-			if(str.equals("Player not found")){
-				waitState = -1;
+			if(str == null){
+				waitState = 0;
 			}
-			else if(str.equals("Multiple players found")){
+			else if(str.equals("-2")){
 				System.out.println("매칭 Multiple players found");
 			}
 			else{

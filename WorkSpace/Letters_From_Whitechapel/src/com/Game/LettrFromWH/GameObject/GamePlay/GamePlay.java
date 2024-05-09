@@ -20,7 +20,9 @@ public class GamePlay extends GameObject {
 	@Override
 	public void init() {
 		super.init();
-		waitMyTrun();
+		//waitMyTrun();
+		//임시
+		myTrun();
 	}
 	
 	public void myTrun() {

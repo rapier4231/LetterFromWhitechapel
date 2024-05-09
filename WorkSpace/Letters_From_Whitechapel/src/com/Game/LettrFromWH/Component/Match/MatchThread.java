@@ -14,6 +14,8 @@ public class MatchThread extends MyThread {
     private final Match match;
 
     private final String countingKey;
+    
+    private int state;
 
     private boolean runThread = true;
 
@@ -25,7 +27,7 @@ public class MatchThread extends MyThread {
 
     public void run() {
         while (runThread){
-            matchingFunc();
+        	matchingFunc();
             delayS(0.3f);
         }
     }
@@ -33,7 +35,13 @@ public class MatchThread extends MyThread {
     ///////////////////////////////////////////////////////////
 
     private void matchingFunc() {
-        switch(DBMng.getInstace().getWaitState()) {
+    	state = DBMng.getInstace().getWaitState();
+    	
+    	if(!runThread) {
+    		return;
+    	}
+    	
+        switch(state) {
             //Wait Table에 없음
             case 0:
                 match.changeMatchingState(Match.MatchingState.WaitForMatching);
@@ -70,7 +78,16 @@ public class MatchThread extends MyThread {
 
     private void successMatchingCheking(){
         if(TimeMng.getInstace().checkCounting(countingKey)){
-        	match.qSuccessMatching();
+        	if(state == 2) {
+        		match.cancelMatching();
+        	}
+        	else if (state == 3) {
+        		match.qSuccessMatching();        		
+        	}
+        	else {
+        		System.out.println("successMatchingCheking 에러 - 2도 3도 아님");
+        	}
+        	
         }
     }
 }

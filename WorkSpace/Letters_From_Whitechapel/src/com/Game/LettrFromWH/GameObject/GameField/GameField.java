@@ -25,10 +25,23 @@ public class GameField extends GameObject {
 	
 	///////////////////////////
 	
-    private String FieldArray[][];
+    private String[][] fieldArray;
+    
+    public String[][] getFieldArray(){
+    	return fieldArray;
+    }
     
     public void createField() {
-    	DBMng.getInstace().settingField(this);
+    	//DBMng.getInstace().settingField(this);
+    	
+    	//임시
+    	fieldArray = new String[7][7];
+    	for(int i = 0; i < 7; i += 2) {
+    		for(int j = 0; j < 7; j += 2) {
+    			fieldArray[i][j] = "◯";
+    		}
+    	}
+    	
     }
     
 	public void setField(ResultSet field) {
@@ -42,7 +55,4 @@ public class GameField extends GameObject {
 		return null;
 	}
 
-	public void printField() {
-		
-	}
 }

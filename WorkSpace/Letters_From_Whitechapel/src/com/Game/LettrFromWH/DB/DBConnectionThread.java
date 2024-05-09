@@ -46,7 +46,7 @@ public class DBConnectionThread extends MyThread {
 		String pwd = properties.getProperty("password");
 		
 		DBConnection.tryConnection();
-
+		
 		try {
 			Class.forName(driverName); // oracle driver를 메모리에 로딩시켜줌 //임포트
 			conn = DriverManager.getConnection(url, user, pwd);
@@ -58,7 +58,7 @@ public class DBConnectionThread extends MyThread {
 			System.out.println("예외: connection fail :" + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
 	
 }

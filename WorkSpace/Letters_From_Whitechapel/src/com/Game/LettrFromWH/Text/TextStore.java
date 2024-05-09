@@ -42,7 +42,7 @@ public class TextStore {
 	public static String waitForMatching = "매칭 중입니다. 잠시만 기다려 주세요.";
 	public static String qAgreeMatching = "매칭에 성공하였습니다. 수락하시겠습니까?";
 	public static String waitForOpponent = "상대방을 기다리는 중입니다.";
-
+	public static String reMatch = "상대방이 게임을 수락하지 않았습니다.\n잠시후 매칭이 재시작 됩니다.";
 	public static String matchingSuccess = "게임 방을 생성 중입니다. 잠시만 기다려주세요.";
 	
 	//Game//
