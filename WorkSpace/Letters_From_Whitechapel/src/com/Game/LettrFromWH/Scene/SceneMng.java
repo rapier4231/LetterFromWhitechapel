@@ -57,6 +57,10 @@ public class SceneMng {
 	public SceneType getCurrentScene() {return currentScene;}	
 	
 	public void changeScene(SceneType nextScene) {
+		if(nextScene == currentScene) {
+			return;
+		}
+		
 		preScene = currentScene;
 		currentScene = nextScene;
 		if(preScene != null) {

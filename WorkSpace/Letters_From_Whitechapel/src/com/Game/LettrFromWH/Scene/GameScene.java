@@ -22,10 +22,9 @@ public class GameScene extends Scene{
     }
     
     @Override
-    public void inputGameObject() {
+    public void inputGameObject() {    	
     	setGameObject("GameField", new GameField());
     	setGameObject("GamePlay", new GamePlay());
     	setGameObject("GameRenderer", new GameRenderer());
-    	
     }
 }

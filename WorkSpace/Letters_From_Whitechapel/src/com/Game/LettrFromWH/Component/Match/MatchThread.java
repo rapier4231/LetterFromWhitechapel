@@ -17,27 +17,22 @@ public class MatchThread extends MyThread {
     
     private int state;
 
-    private boolean runThread = true;
-
-    public void setRunThread(boolean runThread){
-        this.runThread = runThread;
-    }
-
     //Thread//////////////////////////////////////////////////
 
     public void run() {
-        while (runThread){
+        while (match.getRunThread()){
         	matchingFunc();
-            delayS(0.3f);
+        	delayS(0.3f);
         }
     }
 
     ///////////////////////////////////////////////////////////
 
     private void matchingFunc() {
-    	state = DBMng.getInstace().getWaitState();
+    	//state = DBMng.getInstace().getWaitState();
+    	state = 2;
     	
-    	if(!runThread) {
+    	if(match == null) {
     		return;
     	}
     	
@@ -63,7 +58,6 @@ public class MatchThread extends MyThread {
                 successMatchingCheking();
                 break;
             default:
-                runThread = false;
                 break;
         }
     }
@@ -79,10 +73,11 @@ public class MatchThread extends MyThread {
     private void successMatchingCheking(){
         if(TimeMng.getInstace().checkCounting(countingKey)){
         	if(state == 2) {
-        		match.cancelMatching();
+        		//match.changeMatchingState(Match.MatchingState.CancelMatching); 
+        		match.changeMatchingState(Match.MatchingState.QSuccessMatching);        		
         	}
         	else if (state == 3) {
-        		match.qSuccessMatching();        		
+        		match.changeMatchingState(Match.MatchingState.QSuccessMatching);        		
         	}
         	else {
         		System.out.println("successMatchingCheking 에러 - 2도 3도 아님");

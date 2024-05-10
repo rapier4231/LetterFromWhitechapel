@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.Game.LettrFromWH.DB.DBConnection;
 import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Scene.SceneMng;
+import com.Game.LettrFromWH.Scene.SceneMng.SceneType;
 import com.Game.LettrFromWH.Text.TextStore;
 import com.Game.LettrFromWH.Time.TimeMng;
 
@@ -22,6 +23,7 @@ public class GameApp {
     public void gamePlay() {
         while (GameMng.getInstace().getGameProgress()) {
             SceneMng.getInstace().getCurrentScene().getScene().play();
+            TimeMng.getInstace().delay(GameMng.getInstace().getDelayTime());
         }
     }
 

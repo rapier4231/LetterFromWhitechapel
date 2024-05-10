@@ -33,15 +33,15 @@ public class DBMng {
 	//Version//
 	public boolean checkClientVersion() {
 		
-		String version = "";
-		
+		String version = "";	
 		try {
+			
 			castmt = conn.prepareCall("{ call GetActiveGameVersion(?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.registerOutParameter(1, OracleType.VARCHAR2);
 			
-			System.out.print("Now Version Checking");
+			PrintMng.getInstace().pl("Now Version Checking");
 			PrintMng.getInstace().beginDelayPrint(".",1);
 			
 			//실행
@@ -56,9 +56,9 @@ public class DBMng {
 
 		}
 		catch (SQLException e) {
+			PrintMng.getInstace().endDelayPrint();
 			e.printStackTrace();
 		}
-		
 		
 		if(version.equals(TextStore.version)) {
 			return true;

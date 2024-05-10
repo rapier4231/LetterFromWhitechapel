@@ -36,6 +36,12 @@ public class GameField extends GameObject {
     	
     	//임시
     	fieldArray = new String[7][7];
+    	for(int i = 0; i < 7; ++i) {
+    		for(int j = 0; j < 7; ++j) {
+    			fieldArray[i][j] = "ㅡ";
+    		}
+    	}
+
     	for(int i = 0; i < 7; i += 2) {
     		for(int j = 0; j < 7; j += 2) {
     			fieldArray[i][j] = "◯";

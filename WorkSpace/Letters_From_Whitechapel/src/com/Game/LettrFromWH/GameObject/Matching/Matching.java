@@ -34,12 +34,12 @@ public class Matching extends GameObject {
 	}
 
 	public void mathingCancel() {
-		SceneMng.getInstace().changeScene(SceneType.MainScene);
+		SceneMng.getInstace().getCurrentScene().getScene().nextScene(SceneType.MainScene);
 	}
 	
 	public void mathingSuccess() {
 		matchingSuccessView();
-		SceneMng.getInstace().changeScene(SceneMng.SceneType.GameScene);
+		SceneMng.getInstace().getCurrentScene().getScene().nextScene(SceneType.GameScene);
 	}
 	
 	private void matchingSuccessView() {

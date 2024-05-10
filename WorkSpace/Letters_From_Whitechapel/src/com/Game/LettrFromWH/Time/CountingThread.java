@@ -1,6 +1,7 @@
 package com.Game.LettrFromWH.Time;
 
 import com.Game.LettrFromWH.MyThread.MyThread;
+import com.Game.LettrFromWH.Printer.PrintMng;
 
 public class CountingThread extends MyThread {
 
@@ -15,6 +16,6 @@ public class CountingThread extends MyThread {
     public void run() {
         super.run();
         delayS(countSeconds);
-        TimeMng.getInstace().finishCounting(key);
+        TimeMng.getInstace().finishCounting(key);   
     }
 }

@@ -1,10 +1,12 @@
 package com.Game.LettrFromWH.GameObject.GamePlay;
 
 import com.Game.LettrFromWH.GameObject.GameObject;
+import com.Game.LettrFromWH.GameObject.GameRenderer.GameRenderer;
 import com.Game.LettrFromWH.Input.InputMng;
+import com.Game.LettrFromWH.Scene.SceneMng;
 
 public class GamePlay extends GameObject {
-
+	
 	public enum GameState{
 		opponentsTurn,
 		updateField,
@@ -15,12 +17,25 @@ public class GamePlay extends GameObject {
 	}
 	
 	private GameState gameState = GameState.GameState_End;
-	private GamePlayThread gamePlayThread;
-
+	private GameRenderer gameRenderer;
+	
+	public GameRenderer getGameRenderer() {
+		if(gameRenderer == null) {
+			this.gameRenderer = (GameRenderer)(SceneMng.getInstace().getCurrentScene().getScene().getGameObject("GameRenderer"));
+		}
+		
+		return gameRenderer;
+	}
+	
 	@Override
 	public void init() {
 		super.init();
 		//waitMyTrun();
+	}
+
+	@Override
+	public void play() {
+		super.play();
 		//임시
 		myTrun();
 	}
@@ -66,7 +81,8 @@ public class GamePlay extends GameObject {
 	}
 	
 	private void updateField() {
-		
+
+		getGameRenderer().changeView();
 	}
 	
 	private void move() {
@@ -83,8 +99,7 @@ public class GamePlay extends GameObject {
 	}
 	
 	private void waitMyTrun() {
-		gamePlayThread = new GamePlayThread(this);
-		gamePlayThread.start();
+
 	}
 
 }

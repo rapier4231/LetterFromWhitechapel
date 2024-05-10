@@ -12,7 +12,7 @@ public class DBConnection {
 	private DBConnection() {
 	}
 	private static Connection conn;
-	private static final float reConnectSeconds = 3.5f;
+	private static final float reConnectSeconds = 4.f;
 
 	public static void connect(){
 		while (conn == null) {

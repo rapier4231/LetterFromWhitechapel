@@ -58,7 +58,6 @@ public class DBConnectionThread extends MyThread {
 			System.out.println("예외: connection fail :" + e.getMessage());
 			e.printStackTrace();
 		}
-
 	}
 	
 }

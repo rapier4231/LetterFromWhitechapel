@@ -15,13 +15,13 @@ public abstract class GameObject {
 	
 	public void init() {
 		inputComponent();
-		for (Map.Entry<String, Component> entry : componentMap.entrySet()) {
+		for (Map.Entry<String, Component> entry : this.componentMap.entrySet()) {
 			entry.getValue().init();
 		}
 	}
 	
 	public  void play(){
-		for (Map.Entry<String, Component> entry : componentMap.entrySet()) {
+		for (Map.Entry<String, Component> entry : this.componentMap.entrySet()) {
 			if(entry.getValue().getIsPlaying()){
 				entry.getValue().play();
 			}
@@ -29,11 +29,11 @@ public abstract class GameObject {
 	}
 	
 	public  void exit(){
-		for (Map.Entry<String, Component> entry : componentMap.entrySet()) {
+		for (Map.Entry<String, Component> entry : this.componentMap.entrySet()) {
 			entry.getValue().exit();
 		}
 
-		componentMap.clear();
+		this.componentMap.clear();
 	}
 
 	public void inputComponent() {
@@ -46,21 +46,21 @@ public abstract class GameObject {
 			return;
 		}
 
-		if(componentMap.containsKey(key)) {
+		if(this.componentMap.containsKey(key)) {
 			PrintMng.getInstace().pl("GameObject에 넣을 겜 컴포넌트의 키값이 이미 있슴돠.");
 			return;
 		}
-		componentMap.put(key, component);
+		this.componentMap.put(key, component);
 		component.setGameObject(this);
 	}
 
 	public Component getComponent(String key) {
-		if(!componentMap.containsKey(key)) {
+		if(!this.componentMap.containsKey(key)) {
 			PrintMng.getInstace().pl("GameObject에서 가져올려 하는 객체의 키 값이 없슴돠.");
 			return null;
 		}
 
-		return componentMap.get(key);
+		return this.componentMap.get(key);
 	}
 	
 	public void outPlay() {

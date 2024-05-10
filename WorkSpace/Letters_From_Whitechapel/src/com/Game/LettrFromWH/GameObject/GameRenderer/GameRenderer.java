@@ -6,16 +6,31 @@ import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.GameObject.GameObject;
 import com.Game.LettrFromWH.GameObject.GameField.GameField;
 import com.Game.LettrFromWH.Printer.PrintMng;
+import com.Game.LettrFromWH.Scene.Scene;
 import com.Game.LettrFromWH.Scene.SceneMng;
 import com.Game.LettrFromWH.Text.TextStore;
 import com.Game.LettrFromWH.Time.TimeMng;
 import com.Game.LettrFromWH.GameObject.GamePlay.GamePlay;
 
 public class GameRenderer extends GameObject {
-
+	
 	private boolean viewChanging = false;
-	private final GameField gameField = (GameField)(SceneMng.getInstace().getCurrentScene().getScene().getGameObject("GameField"));
-	private final GamePlay gamePlay = (GamePlay)(SceneMng.getInstace().getCurrentScene().getScene().getGameObject("GamePlay"));
+	private GameField gameField;
+	private GamePlay gamePlay;
+	
+	public GameField getGameField() {
+		if(gameField == null) {
+			gameField = (GameField)SceneMng.getInstace().getCurrentScene().getScene().getGameObject("GameField");
+		}
+		return gameField;
+	}
+	
+	public GamePlay getGamePlay() {
+		if(gamePlay == null) {
+			gamePlay = (GamePlay)SceneMng.getInstace().getCurrentScene().getScene().getGameObject("GamePlay");
+		}
+		return gamePlay;
+	}
 	
 	public void changeView() {
 		viewChanging = true;
@@ -33,7 +48,7 @@ public class GameRenderer extends GameObject {
 	private void printView() {
 		ArrayList<String> gamePrintList = new ArrayList<String>();
 		
-		convertAndAddGameField(gameField.getFieldArray(), gamePrintList);
+		convertAndAddGameField(getGameField().getFieldArray(), gamePrintList);
 		
 		gamePrintList.add(TextStore.dividingLine);
 		
@@ -108,6 +123,6 @@ public class GameRenderer extends GameObject {
 	
 	private void printinput() {
 		PrintMng.getInstace().p(TextStore.userInputTalk);
-		gamePlay.userInput();
+		getGamePlay().userInput();
 	}
 }

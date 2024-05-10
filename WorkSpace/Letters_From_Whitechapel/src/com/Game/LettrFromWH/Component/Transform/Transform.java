@@ -9,7 +9,7 @@ import com.Game.LettrFromWH.Scene.SceneMng;
 public class Transform extends Component {
 
 	private final GameField gameField = (GameField)SceneMng.getInstace().getCurrentScene().getScene().getGameObject("GameField");
-	
+
 	private final UnitType unitType;
 	
 	private final int moveCount = DBMng.getInstace().getMoveCount();

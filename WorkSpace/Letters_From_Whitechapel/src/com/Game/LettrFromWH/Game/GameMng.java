@@ -18,12 +18,17 @@ public class GameMng {
     /////////////////////////////////////////////////////
 
     private boolean gameProgress = false;
+	private final float fps = 20;
+	private final long delayTime = (long)(1.f/fps*1000.f);
 
     private int nowTurnNumber = 1;
     private int lastTurnNumber;
     private int turnLimitTimeSeconds;
 
     public boolean getGameProgress(){return gameProgress;}
+    
+    public float getFps() {return fps;}
+    public long getDelayTime() {return delayTime;}
     
     public void beginGame() {
     	gameProgress = true;

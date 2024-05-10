@@ -2,6 +2,7 @@ package com.Game.LettrFromWH.Printer;
 
 import java.util.ArrayList;
 
+import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.Time.TimeMng;
 
 public class PrintMng{
@@ -40,10 +41,7 @@ public class PrintMng{
 	public void changeLine() {p("\n");}
 	
 	/////////////////////////////////////////////////////////
-	
-	private final float fps = 20;
-	private final long delayTime = (long)(1.f/fps*1000.f);
-	
+
 	private enum PrintType{
 		RightAppear,
 		DiagonalAppear,
@@ -114,7 +112,7 @@ public class PrintMng{
 				}
 			}
 			
-			TimeMng.getInstace().delay(delayTime);
+			TimeMng.getInstace().delay(GameMng.getInstace().getDelayTime());
 		}
 	}
 	
@@ -129,7 +127,7 @@ public class PrintMng{
 			calculateDiagonalAppearRight(printIndexList, appearIndex);
 			
 			printDiagonalAppear(printIndexList);
-			TimeMng.getInstace().delay(delayTime);
+			TimeMng.getInstace().delay(GameMng.getInstace().getDelayTime());
 		}
 	}
 	
@@ -211,8 +209,10 @@ public class PrintMng{
 	private DelayPrintThread delayPrintThread;
 	
 	public void beginDelayPrint(String delayPrintStr, float delayTimeS) {
-		delayPrintThread = new DelayPrintThread(delayPrintStr,delayTimeS);
-		delayPrintThread.start();
+		if(delayPrintThread == null) {
+			delayPrintThread = new DelayPrintThread(delayPrintStr,delayTimeS);
+			delayPrintThread.start();
+		}
 	}
 
 	public void endDelayPrint() {
