@@ -1,14 +1,19 @@
 package com.Game.LettrFromWH.Scene;
 
+import com.Game.LettrFromWH.Component.Transform.Transform;
+import com.Game.LettrFromWH.DB.DBMng;
 import com.Game.LettrFromWH.GameObject.GameField.GameField;
 import com.Game.LettrFromWH.GameObject.GamePlay.GamePlay;
 import com.Game.LettrFromWH.GameObject.GameRenderer.GameRenderer;
+import com.Game.LettrFromWH.GameObject.Unit.Jack;
+import com.Game.LettrFromWH.GameObject.Unit.Police1;
 
 public class GameScene extends Scene{
 
     @Override
     public void init() {
         super.init();
+        settingGame();
     }
 
     @Override
@@ -26,5 +31,36 @@ public class GameScene extends Scene{
     	setGameObject("GameField", new GameField());
     	setGameObject("GamePlay", new GamePlay());
     	setGameObject("GameRenderer", new GameRenderer());
+        checkMyRoll();
     }
+
+    private void checkMyRoll(){
+        switch (DBMng.getInstace().getMyRoll()){
+            case Jack :
+                setGameObject("Unit", new Jack());
+                ((GamePlay)getGameObject("GamePlay")).changeGameTurnState(GamePlay.GameTurnState.Move);
+                break;
+            case Police1 :
+                setGameObject("Unit", new Police1());
+                ((GamePlay)getGameObject("GamePlay")).changeGameTurnState(GamePlay.GameTurnState.OpponentsTurn);
+                break;
+            case Police2 :
+                break;
+            case UnitType_End :
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void settingGame(){
+        settingTrun();
+        ((GameField)getGameObject("GameField")).createField();
+        ((GameRenderer)getGameObject("GameRenderer")).firstFieldView();
+    }
+
+    private void settingTrun() {
+        DBMng.getInstace().settingTurnInfo();
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.Game.LettrFromWH.User;
 
+import com.Game.LettrFromWH.DB.DBMng;
+
 public class UserMng {
 	
 	//Singleton
@@ -17,4 +19,26 @@ public class UserMng {
 	
 	public int getUserId() {return userId;}
 	public void setUserId(int userId) {this.userId = userId;}
+
+	private String myNickName = "";
+
+	private String opponentsNickName;
+
+	public void settingOpponentsName(){
+		opponentsNickName = DBMng.getInstace().getOpponentsUserNickname();
+	}
+
+	public String getMyNickName() {
+		if(myNickName.isEmpty()){
+			myNickName = DBMng.getInstace().getUserNickname();
+			if(myNickName == null){
+				myNickName = "Test";
+			}
+		}
+		return myNickName;
+	}
+
+	public String getOpponentsNickName(){
+		return opponentsNickName;
+	}
 }

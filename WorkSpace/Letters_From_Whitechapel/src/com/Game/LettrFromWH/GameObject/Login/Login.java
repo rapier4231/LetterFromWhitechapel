@@ -158,7 +158,7 @@ public class Login extends GameObject {
 
 	// 로그인 성공 메세지
 	private void loginSuccess() {
-		PrintMng.getInstace().cpl(TextStore.systemTalk + DBMng.getInstace().getUserNickname() + TextStore.loginSuccess);
+		PrintMng.getInstace().cpl(TextStore.systemTalk + UserMng.getInstace().getMyNickName()+ TextStore.loginSuccess);
 		TimeMng.getInstace().delayS(1);
 	}
 

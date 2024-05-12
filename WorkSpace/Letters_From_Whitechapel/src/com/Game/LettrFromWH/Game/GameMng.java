@@ -1,6 +1,7 @@
 package com.Game.LettrFromWH.Game;
 
 import com.Game.LettrFromWH.Component.Transform.Transform;
+import com.Game.LettrFromWH.DB.DBMng;
 
 public class GameMng {
 
@@ -25,6 +26,8 @@ public class GameMng {
     private int lastTurnNumber;
     private int turnLimitTimeSeconds;
 
+	private String actionTalk = "";
+
     public boolean getGameProgress(){return gameProgress;}
     
     public float getFps() {return fps;}
@@ -46,6 +49,8 @@ public class GameMng {
 		return nowTurnNumber;
 	}
 
+	public void plusNowTurn(){++nowTurnNumber;}
+
 	public int getLastTurn() {
 		return lastTurnNumber;
 	}
@@ -54,8 +59,16 @@ public class GameMng {
 		return turnLimitTimeSeconds;
 	}
 	
-	public String getAction() {
+	public String getActionTalk() {
+		return actionTalk;
+	}
 
-		return null;
+	public void updateTurnAndActionTalk(){
+		DBMng.getInstace().updateTurnAndActionTalk();
+	}
+
+	public void setTurnAndActionTalk(int nowTurnNumber , String actionTalk){
+		this.nowTurnNumber = nowTurnNumber;
+		this.actionTalk = actionTalk;
 	}
 }

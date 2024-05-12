@@ -3,11 +3,13 @@ package com.Game.LettrFromWH.GameObject.Matching;
 import java.util.ArrayList;
 
 import com.Game.LettrFromWH.Component.Match.Match;
+import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.GameObject.GameObject;
 import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Scene.SceneMng;
 import com.Game.LettrFromWH.Scene.SceneMng.SceneType;
 import com.Game.LettrFromWH.Time.TimeMng;
+import com.Game.LettrFromWH.User.UserMng;
 
 public class Matching extends GameObject {
 	
@@ -39,6 +41,7 @@ public class Matching extends GameObject {
 	
 	public void mathingSuccess() {
 		matchingSuccessView();
+		UserMng.getInstace().settingOpponentsName();
 		SceneMng.getInstace().getCurrentScene().getScene().nextScene(SceneType.GameScene);
 	}
 	

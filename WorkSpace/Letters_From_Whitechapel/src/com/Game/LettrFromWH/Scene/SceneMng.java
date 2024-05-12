@@ -74,7 +74,7 @@ public class SceneMng {
 	}
 
 	public void begin(){
-		changeScene(SceneType.VersionCheckScene);
+		changeScene(SceneType.GameScene);
 	}
 
 	public void end(){

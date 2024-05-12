@@ -56,6 +56,10 @@ public class DBConnection {
 	}
 	
 	public static Connection getConnection() {
+		if(conn == null){
+			connect();
+		}
+
 		return conn;
 	}
 

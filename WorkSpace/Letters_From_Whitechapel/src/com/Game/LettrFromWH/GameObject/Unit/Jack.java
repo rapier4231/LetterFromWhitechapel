@@ -1,13 +1,11 @@
 package com.Game.LettrFromWH.GameObject.Unit;
 
 import com.Game.LettrFromWH.Component.Ability.JackAbility;
+import com.Game.LettrFromWH.Component.Transform.JackTransform;
+import com.Game.LettrFromWH.Component.Transform.Transform;
 
 public class Jack extends Unit {
 
-	public Jack(UnitType unitType) {
-		super(unitType);
-	}
-	
 	@Override
 	public void init() {
 		super.init();
@@ -25,8 +23,18 @@ public class Jack extends Unit {
 	
 	public void inputComponent() {
 		super.inputComponent();
+		setComponent("Transform", new JackTransform());
 		setComponent("Ability", new JackAbility());
 	}
+
+	@Override
+	protected void settingMyUnitType() {
+		unitType = UnitType.Jack;
+	}
+
+	@Override
+	public int getMoveCount() {
+		return ((Transform)getComponent("Transform")).getMoveCount();
+	}
 	///////////////////////////
-	
 }

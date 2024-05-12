@@ -3,17 +3,21 @@ package com.Game.LettrFromWH.GameObject.Unit;
 import com.Game.LettrFromWH.Component.Transform.Transform;
 import com.Game.LettrFromWH.GameObject.GameObject;
 
-public class Unit extends GameObject {
+public abstract class Unit extends GameObject {
 
-	public Unit(UnitType unitType) {
-		this.unitType = unitType;
+	public enum UnitType{
+		Jack,
+		Police1,
+		Police2,
+		UnitType_End
 	}
-	
-	////////////////////////////
-	
+
+	protected UnitType unitType = UnitType.UnitType_End;
+
 	@Override
 	public void init() {
 		super.init();
+		settingMyUnitType();
 	}
 
 	@Override
@@ -26,21 +30,21 @@ public class Unit extends GameObject {
 		super.exit();
 	}
 	
-	@Override
-	public void inputComponent() {
-		super.inputComponent();
-		setComponent("Transform", new Transform(unitType));
-	}
-	
 	///////////////////////////
 
-	public enum UnitType{
-		Jack,
-		Police1,
-		Police2,
-		UnitType_End
+	protected abstract void settingMyUnitType();
+
+	public boolean getIsJack(){
+		if(unitType == UnitType.Jack){
+			return true;
+		}
+		return false;
 	}
-	
-	private final UnitType unitType;
-	
+
+	public abstract int getMoveCount();
+
+	public boolean setMove(String userInput){
+		String[] moveInputArray = userInput.split(",");
+		return ((Transform)getComponent("Transform")).setMoveInput(moveInputArray);
+	}
 }

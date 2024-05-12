@@ -1,6 +1,7 @@
 package com.Game.LettrFromWH.Printer;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.Time.TimeMng;
@@ -45,11 +46,14 @@ public class PrintMng{
 	private enum PrintType{
 		RightAppear,
 		DiagonalAppear,
+		TopAppear,
 		PrintType_End
 	}
 	
 	private PrintType printType = PrintType.PrintType_End;
-	
+
+
+	private String[] trashStringArray = new String[] {"@","#","$","&","§","∏","∑","∆","∇","∉","£","⎋","⇟","ॐ","╳","╲","╱","│","ㅡ","⭕","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j"};
 	private ArrayList<String> printStringList;
 	private int printStringListSize;
 	private int printStringListMaxLength;
@@ -67,6 +71,12 @@ public class PrintMng{
 		startEffect();
 	}
 
+	public void topAppearPrint(ArrayList<String> printStringList) {
+		this.printStringList = printStringList;
+		printType = printType.TopAppear;
+		startEffect();
+	}
+
 	public void startEffect() {
 		checkArrayList();
 		
@@ -77,6 +87,9 @@ public class PrintMng{
 			case DiagonalAppear:
 				settingMaxEmpty();
 				diagonalAppear();
+				break;
+			case TopAppear:
+				topAppear();
 				break;
 			case PrintType_End:
 				break;
@@ -220,5 +233,45 @@ public class PrintMng{
 			delayPrintThread.cancel();
 			delayPrintThread = null;
 		}
+	}
+
+	//////////////////////////////////////////////////////////////
+
+	private void topAppear(){
+		int appearIndex = 0;
+		while(++appearIndex <= printStringListSize) {
+			for(int i = 0; i < 4; ++i){
+				printTopAppear(calculateTopAppear(appearIndex));
+				TimeMng.getInstace().delay(GameMng.getInstace().getDelayTime());
+				if(appearIndex == printStringListSize){
+					break;
+				}
+			}
+		}
+	}
+
+	private String calculateTopAppear(int appearIndex){
+		String printStr = "";
+		Random random = new Random();
+		for(int i = 0; i < printStringListSize; ++i){
+			if(i < appearIndex){
+				printStr += printStringList.get(i);
+			}
+			else{
+				for(int j = 0; j < printStringList.get(i).length(); ++j){
+					if(printStringList.get(i).charAt(j) == '\t'){
+						printStr += "\t";
+					}
+					printStr += trashStringArray[random.nextInt(trashStringArray.length)];
+				}
+			}
+			printStr += "\n";
+		}
+		return printStr;
+	}
+
+	private void printTopAppear(String printStr){
+		cmdClear();
+		pl(printStr);
 	}
 }

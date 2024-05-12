@@ -47,7 +47,7 @@ public abstract class GameObject {
 		}
 
 		if(this.componentMap.containsKey(key)) {
-			PrintMng.getInstace().pl("GameObject에 넣을 겜 컴포넌트의 키값이 이미 있슴돠.");
+			PrintMng.getInstace().pl("GameObject에 넣을 겜 컴포넌트의 키값이 이미 있슴돠." + key);
 			return;
 		}
 		this.componentMap.put(key, component);

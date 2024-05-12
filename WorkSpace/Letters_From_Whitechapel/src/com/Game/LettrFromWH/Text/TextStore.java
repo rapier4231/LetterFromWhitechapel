@@ -48,7 +48,16 @@ public class TextStore {
 	//Game//
 	public static String trunTalk = "Turn : ";
 	public static String actionTalk = "Action : ";
-	
+	public static String GameDividingLine = "=================================================================";
+
+	public static String MoveUserUnit = "당신의 캐릭터를 움직여 주세요.";
+
+	public static String MoveJackUnit(int moveCount){
+		return "잭은 움직이지 않거나, " + moveCount + "칸을 이동할 수 있습니다. (입력 예시 : a1, a2 [또는] NoMove)";
+	}
+	public static String MovePoliceUnit(int moveCount){
+		return "경찰은 움직이지 않거나, " + moveCount + "칸을 이동할 수 있습니다. (입력 예시 : a1, a2, b2 [또는] NoMove)";
+	}
 	
 	//Exit//
 	public static String Bye = "다음에 다시 뵙기를 기대하겠습니다.";

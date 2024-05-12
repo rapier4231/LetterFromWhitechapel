@@ -1,13 +1,11 @@
 package com.Game.LettrFromWH.GameObject.Unit;
 
 import com.Game.LettrFromWH.Component.Ability.Police1Ability;
+import com.Game.LettrFromWH.Component.Transform.PoliceTransform;
+import com.Game.LettrFromWH.Component.Transform.Transform;
 
 public class Police1 extends Unit {
 
-	public Police1(UnitType unitType) {
-		super(unitType);
-	}
-	
 	@Override
 	public void init() {
 		super.init();
@@ -25,9 +23,19 @@ public class Police1 extends Unit {
 	
 	public void inputComponent() {
 		super.inputComponent();
+		setComponent("Transform", new PoliceTransform());
 		setComponent("Ability", new Police1Ability());
 	}
-	
+
+	@Override
+	protected void settingMyUnitType() {
+		unitType = UnitType.Police1;
+	}
+
+	@Override
+	public int getMoveCount() {
+		return ((Transform)getComponent("Transform")).getMoveCount();
+	}
 	///////////////////////////
 	
 }

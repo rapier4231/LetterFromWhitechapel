@@ -7,6 +7,7 @@ import com.Game.LettrFromWH.Printer.PrintMng;
 import com.Game.LettrFromWH.Scene.SceneMng;
 import com.Game.LettrFromWH.Scene.SceneMng.SceneType;
 import com.Game.LettrFromWH.Text.TextStore;
+import com.Game.LettrFromWH.User.UserMng;
 
 public class Main extends GameObject{
 
@@ -44,7 +45,7 @@ public class Main extends GameObject{
 	}
 
 	private int getSelectMainMenu(boolean wrongInput) {
-		PrintMng.getInstace().cpl(TextStore.accessNickName + DBMng.getInstace().getUserNickname());
+		PrintMng.getInstace().cpl(TextStore.accessNickName + UserMng.getInstace().getMyNickName());
 		PrintMng.getInstace().pl(TextStore.dividingLine);
 		if(wrongInput) {
 			PrintMng.getInstace().pl(TextStore.systemTalk + TextStore.wrongInput);
