@@ -16,11 +16,5 @@ public abstract class Ability extends Component {
     	super.exit();
     }
 	
-	public void useAbility() {
-		
-	}
-	
-	public void skipAbility() {
-		
-	}
+	public abstract boolean setAbilityInput(String userInput);
 }

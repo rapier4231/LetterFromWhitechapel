@@ -13,28 +13,28 @@ public class Way extends FieldPiece{
     }
 
     public void setLeftBottomRightTop(){
-        if(way.equals("╳")){
+        if(way.equals("X")){
             return;
         }
 
-        if(way.equals("╲")){
-            way = "╳";
+        if(way.equals("\\")){
+            way = "X";
         }
         else {
-            way = "╱";
+            way = "/";
         }
     }
 
     public void setLeftTopRightBottom(){
-        if(way.equals("╳")){
+        if(way.equals("X")){
             return;
         }
 
-        if(way.equals("╱")){
-            way = "╳";
+        if(way.equals("/")){
+            way = "X";
         }
         else{
-            way = "╲";
+            way = "\\";
         }
     }
 

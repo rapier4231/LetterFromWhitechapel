@@ -41,4 +41,7 @@ public class UserMng {
 	public String getOpponentsNickName(){
 		return opponentsNickName;
 	}
+	public void resetGameInfo() {
+		opponentsNickName = "";
+	}
 }

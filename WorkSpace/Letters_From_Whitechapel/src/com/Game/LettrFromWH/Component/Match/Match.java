@@ -74,6 +74,8 @@ public class Match extends Component {
     @Override
     public void init() {
     	super.init();
+    	//초기화
+    	DBMng.getInstace().cancelMatching();
         startThread();
     }
     

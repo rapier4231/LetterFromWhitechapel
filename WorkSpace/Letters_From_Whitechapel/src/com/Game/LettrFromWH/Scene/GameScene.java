@@ -1,6 +1,5 @@
 package com.Game.LettrFromWH.Scene;
 
-import com.Game.LettrFromWH.Component.Transform.Transform;
 import com.Game.LettrFromWH.DB.DBMng;
 import com.Game.LettrFromWH.GameObject.GameField.GameField;
 import com.Game.LettrFromWH.GameObject.GamePlay.GamePlay;
@@ -38,11 +37,12 @@ public class GameScene extends Scene{
         switch (DBMng.getInstace().getMyRoll()){
             case Jack :
                 setGameObject("Unit", new Jack());
-                ((GamePlay)getGameObject("GamePlay")).changeGameTurnState(GamePlay.GameTurnState.Move);
+                ((GamePlay)getGameObject("GamePlay")).startGame(true);
+         
                 break;
             case Police1 :
                 setGameObject("Unit", new Police1());
-                ((GamePlay)getGameObject("GamePlay")).changeGameTurnState(GamePlay.GameTurnState.OpponentsTurn);
+                ((GamePlay)getGameObject("GamePlay")).startGame(false);
                 break;
             case Police2 :
                 break;
@@ -55,7 +55,6 @@ public class GameScene extends Scene{
 
     private void settingGame(){
         settingTrun();
-        ((GameField)getGameObject("GameField")).createField();
         ((GameRenderer)getGameObject("GameRenderer")).firstFieldView();
     }
 

@@ -37,5 +37,13 @@ public class Police1 extends Unit {
 		return ((Transform)getComponent("Transform")).getMoveCount();
 	}
 	///////////////////////////
-	
+	@Override
+	protected void settingOpponentsNode() {
+		gameField.setOpponentsNode(false);
+	}
+
+	@Override
+	public void moveMyUnit(int beginPosX, int beginPosY, int endPosX, int endPosY) {
+		gameField.moveMyUnit(beginPosX,beginPosY,endPosX,endPosY,false);
+	}
 }

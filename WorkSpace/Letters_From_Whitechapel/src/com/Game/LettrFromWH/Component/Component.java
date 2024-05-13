@@ -1,7 +1,6 @@
 package com.Game.LettrFromWH.Component;
 
 import com.Game.LettrFromWH.GameObject.GameObject;
-
 public abstract class Component {
 
 	private GameObject gameObject;

@@ -56,6 +56,7 @@ public class GameRenderer extends GameObject {
 	private void printView() {
 		ArrayList<String> gamePrintList = settingPrintArray(false);
 
+		PrintMng.getInstace().cmdClear();
         for (String s : gamePrintList) {
             PrintMng.getInstace().pl(s);
         }
@@ -88,7 +89,12 @@ public class GameRenderer extends GameObject {
 		rowStr = new StringBuilder();
 		for(int i = sqrt - 1; i > -1; --i){
 			rowStr.setLength(0);
-			rowStr.append(i + 1);
+			if(i % 2 == 0) {
+				rowStr.append((int)(i * 0.51f) + 1);
+			}
+			else {
+				rowStr.append(" ");
+			}
 			rowStr.append("\t");
 			for (int j = 0; j < sqrt; ++j){
 				rowStr.append(fieldPiece2dArrayList.get(i).get(j).toString());
@@ -125,7 +131,11 @@ public class GameRenderer extends GameObject {
 	}
 	
 	private void addPrintListOpponentAction(ArrayList<String> gamePrintList) {
-		gamePrintList.add(TextStore.actionTalk + GameMng.getInstace().getActionTalk());
+		String actionTalk = GameMng.getInstace().getActionTalk();
+		if(actionTalk.isEmpty()) {
+			return;
+		}
+		gamePrintList.add(TextStore.actionTalk + actionTalk);
 	}
 	
 	private void addPrintListSystemMsg(ArrayList<String> gamePrintList) {

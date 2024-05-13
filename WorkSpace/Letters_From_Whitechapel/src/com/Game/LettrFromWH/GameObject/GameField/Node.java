@@ -1,7 +1,5 @@
 package com.Game.LettrFromWH.GameObject.GameField;
 
-import com.Game.LettrFromWH.Printer.PrintMng;
-
 public class Node extends FieldPiece{
 
     public Node(String name, String nodeType, String canMoveTop, String canMoveRightTop,
@@ -47,6 +45,9 @@ public class Node extends FieldPiece{
     private final boolean canMoveLeftBottom;
     private final boolean canMoveLeft;
     private final boolean canMoveLeftTop;
+    
+    private boolean isJack = false;
+    private boolean isPolice1 = false;
 
     public NodeType getNodeType() {
         return nodeType;
@@ -88,6 +89,19 @@ public class Node extends FieldPiece{
         return canMoveLeftTop;
     }
 
+    public void inJack() {
+    	isJack = true;
+    }
+    public void inPolice1() {
+    	isPolice1 = true;
+    }
+    public void outJack() {
+    	isJack = false;
+    }
+    public void outPolice1() {
+    	isPolice1 = false;
+    }
+    
     public void setKillNode(){
         if(nodeType != NodeType.Yet){
             System.out.println("살인 일어날 구역 아닌데 살인 터짐요! 미쳤으요?!");
@@ -98,8 +112,29 @@ public class Node extends FieldPiece{
 
     @Override
     public String toString(){
-
-        return "⭕";
+    	
+    	String outPut = "";
+    	
+    	if(isJack) {
+    		outPut += "J";
+    	}
+    	if(isPolice1) {
+    		outPut += "P";
+    	}
+    	
+    	if(outPut.isEmpty()) {
+    		if(nodeType == NodeType.Normal) {
+    			outPut += "○";
+    		}
+    		else if(nodeType == NodeType.Yet) {
+    			outPut += "◐";
+    		}
+    		else if (nodeType == NodeType.Kill) {
+    			outPut += "●";
+    		}
+    	}
+    	
+    	return outPut;
     }
 
     private NodeType changeStringToNodeType(String str){
@@ -114,4 +149,19 @@ public class Node extends FieldPiece{
     private boolean changeStringToBoolean(String str){
         return str.equals("1");
     }
+
+	public String setKill() {
+		if(nodeType == NodeType.Yet) {
+			nodeType = NodeType.Kill;
+			return name;
+		}
+		return "";
+	}
+
+	public boolean isCanKill() {
+		if(nodeType == NodeType.Yet) {
+			return true;
+		}
+		return false;
+	}
 }

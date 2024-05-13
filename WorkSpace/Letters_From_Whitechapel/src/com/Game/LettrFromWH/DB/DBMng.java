@@ -33,6 +33,8 @@ public class DBMng {
 	
 	//Version//
 	public boolean checkClientVersion() {
+		PrintMng.getInstace().p("Now Version Checking");
+		PrintMng.getInstace().beginDelayPrint(".",1);
 		
 		String version = "";	
 		try {
@@ -40,15 +42,10 @@ public class DBMng {
 			castmt = conn.prepareCall("{ call GetActiveGameVersion(?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
-			castmt.registerOutParameter(1, OracleType.VARCHAR2);
-			
-			PrintMng.getInstace().pl("Now Version Checking");
-			PrintMng.getInstace().beginDelayPrint(".",1);
-			
+			castmt.registerOutParameter(1, OracleType.VARCHAR2);		
+
 			//실행
-			castmt.execute();
-			
-			PrintMng.getInstace().endDelayPrint();
+			castmt.execute();		
 			
 			//결과물 가져오기
 			version = (String)castmt.getObject(1);
@@ -61,10 +58,12 @@ public class DBMng {
 			e.printStackTrace();
 		}
 		
+		PrintMng.getInstace().endDelayPrint();
+		
 		if(version.equals(TextStore.version)) {
 			return true;
 		}
-		
+			
 		return false;
 	}
 	
@@ -348,29 +347,29 @@ public class DBMng {
 		}
 	}
 	
-	public boolean qSuccessMatching() {
-		boolean success = false;
-		try {
-			castmt = conn.prepareCall("{ call ????????????(?,?) }");
-
-			//모든 인자에 대한 set 및 out 셋팅
-			castmt.setInt(1, UserMng.getInstace().getUserId());
-			castmt.registerOutParameter(2, OracleType.VARCHAR2);
-
-			//실행
-			castmt.execute();
-
-			// = castmt.get();
-
-			castmt.close();
-
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return success;
-	}
+//	public boolean qSuccessMatching() {
+//		boolean success = false;
+//		try {
+//			castmt = conn.prepareCall("{ call ????????????(?,?) }");
+//
+//			//모든 인자에 대한 set 및 out 셋팅
+//			castmt.setInt(1, UserMng.getInstace().getUserId());
+//			castmt.registerOutParameter(2, OracleType.VARCHAR2);
+//
+//			//실행
+//			castmt.execute();
+//
+//			// = castmt.get();
+//
+//			castmt.close();
+//
+//		}
+//		catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//
+//		return success;
+//	}
 
 	public String getOpponentsUserNickname() {
 		String opponentsUserNickname = "";
@@ -397,8 +396,32 @@ public class DBMng {
 	}
 
 	//GameInfo
+
+	public int getTotalPlayers() {
+		int totalPlayers = 0;
+		try {
+			castmt = conn.prepareCall("{ call GetCurrentTotalPlayers(?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.registerOutParameter(1, OracleType.NUMBER);
+
+			//실행
+			castmt.execute();
+
+			totalPlayers = castmt.getInt(1);
+
+			castmt.close();
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return totalPlayers;
+	}
+	
 	public Unit.UnitType  getMyRoll(){
-		return Unit.UnitType.Jack;
+		return Unit.UnitType.Police1;
 
 //		Unit.UnitType  unitType = Unit.UnitType.UnitType_End;
 //
@@ -508,41 +531,66 @@ public class DBMng {
 		}
 
 		return colCount;
-	}
-
-	public int getFieldRowCount() {
-		int rowCount = 0;
+	} 
+	
+	public void setKill(String setKill) {
 		try {
-			castmt = conn.prepareCall("{ call ???(?) }");
+			castmt = conn.prepareCall("{ call UpdateNodeState(?,?) }");
 
-			castmt.registerOutParameter(1, OracleTypes.NUMBER);//crs 받을 것
-
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.setString(2, setKill);
+			
+			//실행
 			castmt.execute();
 
-			rowCount = castmt.getInt(1);
-
 			castmt.close();
+
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void setKillNode(GameField gameField) {
+		try {
+			castmt = conn.prepareCall("{ call GetStateTwoNodes(?, ?) }");
 
-		return rowCount;
+			//castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.setInt(1, 2);
+			castmt.registerOutParameter(2, OracleTypes.CURSOR);//crs 받을 것
+			
+			castmt.execute();
+			
+			ResultSet rs;
+			rs = (ResultSet) castmt.getObject(2);
+			gameField.setKillNode(rs);
+			
+		    rs.close();
+		    castmt.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	//Turn
 	public boolean getMyTurn() {
 		boolean myTurn = false;
 		try {
-			castmt = conn.prepareCall("{ call ????????????(?) }");
+			castmt = conn.prepareCall("{ call GetLastGameTurn(? , ?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
-			castmt.registerOutParameter(1, OracleType.VARCHAR2);
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.registerOutParameter(2, OracleType.NUMBER);
 
 			//실행
 			castmt.execute();
 
-			myTurn = castmt.getBoolean(1);
+			if(((castmt.getInt(2) + GameMng.getInstace().getTotalPlayers()) % GameMng.getInstace().getTotalPlayers())
+					== GameMng.getInstace().getMyRoll()) {
+				myTurn = true;
+			}
 
 			castmt.close();
 
@@ -554,20 +602,20 @@ public class DBMng {
 		return myTurn;
 	}
 
-	public void updateTurnAndActionTalk() {
+	public void updateOpponentsNodeAndActionTalk() {
 
 		try {
-			castmt = conn.prepareCall("{ call ????????????(?,?,?) }");
+			castmt = conn.prepareCall("{ call GetLastGameTurnDetails(?,?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
-			castmt.registerOutParameter(1, OracleType.NUMBER);
-			castmt.registerOutParameter(1, OracleType.VARCHAR2);
+			castmt.registerOutParameter(2, OracleType.VARCHAR2);
+			castmt.registerOutParameter(3, OracleType.VARCHAR2);
 
 			//실행
 			castmt.execute();
 
-			GameMng.getInstace().setTurnAndActionTalk(castmt.getInt(2),castmt.getString(3));
+			GameMng.getInstace().setOpponentsNodeAndActionTalk(castmt.getString(2),castmt.getString(3));
 
 			castmt.close();
 
@@ -576,4 +624,141 @@ public class DBMng {
 			e.printStackTrace();
 		}
 	}
+
+	public void sendTurnData(String moveNodeName, String actionTalk, boolean isSendLast) {
+		try {
+			castmt = conn.prepareCall("{ call InsertPlayroomAction(?,?,?,?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.setString(2, moveNodeName);
+			castmt.setString(3, actionTalk);
+			if(isSendLast) {
+				castmt.setString(4, "1");
+			}
+			else {
+				castmt.setString(4, "0");
+			}
+			
+			//실행
+			castmt.execute();
+
+			castmt.close();
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean inquiryJack(String pos) {
+		try {
+			castmt = conn.prepareCall("{ call ???????(?,?,?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.setString(2, pos);
+			castmt.registerOutParameter(3, OracleType.NUMBER);
+			
+			//실행
+			castmt.execute();
+
+			int success = castmt.getInt(3);
+			
+			castmt.close();
+			
+			if(success == 1) {
+				return true;
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	public boolean arrestJack(String pos) {
+		try {
+			castmt = conn.prepareCall("{ call CheckJackInNode(?,?,?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.setString(2, pos);
+			castmt.registerOutParameter(3, OracleType.NUMBER);
+			
+			//실행
+			castmt.execute();
+
+			int success = castmt.getInt(3);
+			
+			castmt.close();
+			
+			if(success == 1) {
+				return true;
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	public boolean endGame() {
+		try {
+			castmt = conn.prepareCall("{ call ReturnOne(?,?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.registerOutParameter(2, OracleType.NUMBER);
+			
+			//실행
+			castmt.execute();
+
+			int isPlaying = castmt.getInt(2);
+			
+			castmt.close();
+			
+			if(isPlaying == 0) {
+				return true;
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	public boolean qImWinner() {
+		try {
+			castmt = conn.prepareCall("{ call ReturnZero(?,?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.registerOutParameter(2, OracleType.NUMBER);
+			
+			//실행
+			castmt.execute();
+
+			int imWin = castmt.getInt(2);
+			
+			castmt.close();
+			
+			if(imWin == 1) {
+				return true;
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
 }

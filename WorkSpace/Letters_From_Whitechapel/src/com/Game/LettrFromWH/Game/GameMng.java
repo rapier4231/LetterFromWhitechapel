@@ -1,7 +1,11 @@
 package com.Game.LettrFromWH.Game;
 
+import java.util.ArrayList;
+
 import com.Game.LettrFromWH.Component.Transform.Transform;
 import com.Game.LettrFromWH.DB.DBMng;
+import com.Game.LettrFromWH.GameObject.GameField.GameField;
+import com.Game.LettrFromWH.Scene.SceneMng;
 
 public class GameMng {
 
@@ -26,8 +30,15 @@ public class GameMng {
     private int lastTurnNumber;
     private int turnLimitTimeSeconds;
 
+    private String opponentsNode;
+    
 	private String actionTalk = "";
 
+	private ArrayList<String> moveList;
+
+	private int myRoll = 0;
+	private int totalPlayers = 0;
+	
     public boolean getGameProgress(){return gameProgress;}
     
     public float getFps() {return fps;}
@@ -63,12 +74,70 @@ public class GameMng {
 		return actionTalk;
 	}
 
-	public void updateTurnAndActionTalk(){
-		DBMng.getInstace().updateTurnAndActionTalk();
+	public void setActionTalk(String actionTalk) {
+		this.actionTalk = actionTalk;
+	}
+	
+	public void setOpponentsNode(String opponentsNode) {
+		this.opponentsNode = opponentsNode;
+	}
+	
+	public void updateOpponentsNodeAndActionTalk(){
+		DBMng.getInstace().updateOpponentsNodeAndActionTalk();
 	}
 
-	public void setTurnAndActionTalk(int nowTurnNumber , String actionTalk){
-		this.nowTurnNumber = nowTurnNumber;
+	public void setOpponentsNodeAndActionTalk(String nowOpponentsNode , String actionTalk){
+		
 		this.actionTalk = actionTalk;
+
+		if(nowOpponentsNode == null) {
+			return;
+		}
+		
+		if(!this.opponentsNode.equals(nowOpponentsNode)) {
+			((GameField)(SceneMng.getInstace().getCurrentScene().getScene().
+					getGameObject("GameField"))).moveOpponents(this.opponentsNode , nowOpponentsNode);
+		}
+		
+		this.opponentsNode = nowOpponentsNode;
+	}
+
+	public void setMoveList(ArrayList<String> moveList) {
+		this.moveList = moveList;
+	}
+
+	public ArrayList<String> getMoveList() {
+		return moveList;
+	}
+	
+	public void setMyRoll(int myRoll) {
+		this.myRoll = myRoll;
+	}
+	
+	public int getMyRoll() {return myRoll;}
+	
+	public void settingTotalPlayers() {
+		this.totalPlayers = DBMng.getInstace().getTotalPlayers();
+	}
+	
+	public int getTotalPlayers() {return totalPlayers;}
+
+	public void addNowTurnNumber() {
+		++ nowTurnNumber;
+	}
+
+	public boolean endTurn() {
+		return nowTurnNumber > lastTurnNumber ? true : false;
+	}
+
+	public void resetGameInfo() {
+		nowTurnNumber = 1;
+	    lastTurnNumber = 0;
+	    turnLimitTimeSeconds = 0;
+	    opponentsNode = "";
+		actionTalk = "";
+		moveList.clear();;
+		myRoll = 0;
+		totalPlayers = 0;
 	}
 }
