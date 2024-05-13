@@ -12,7 +12,7 @@ import com.Game.LettrFromWH.Time.TimeMng;
 public class GameApp {
 
     public void gameStart(){
-    	//printLogo();
+    	printLogo();
         PrintMng.getInstace().cpl(TextStore.hi);
         DBConnection.connect();
         DBConnectNullChecking();

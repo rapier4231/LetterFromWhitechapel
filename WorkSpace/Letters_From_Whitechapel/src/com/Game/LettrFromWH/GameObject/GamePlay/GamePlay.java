@@ -275,18 +275,18 @@ public class GamePlay extends GameObject {
 	
 	public void startGame(boolean isJack) {
 		
-		
-		changeGameTurnState(GamePlay.GameTurnState.Move);
-		return;
-		
-//		if(isJack) {
-//			changeGameTurnState(GamePlay.GameTurnState.Move);
-//		}
-//		else {
-//			changeGameTurnState(GamePlay.GameTurnState.OpponentsTurn);
-//			gameSystemTalk = TextStore.WaitMyTurn;
-//			getGameRenderer().changeView();
-//		}
+//		
+//		changeGameTurnState(GamePlay.GameTurnState.Move);
+//		return;
+//		
+		if(isJack) {
+			changeGameTurnState(GamePlay.GameTurnState.Move);
+		}
+		else {
+			changeGameTurnState(GamePlay.GameTurnState.OpponentsTurn);
+			gameSystemTalk = TextStore.WaitMyTurn;
+			getGameRenderer().changeView();
+		}
 	}
 
 	private void finishMyTurn(){
@@ -305,22 +305,24 @@ public class GamePlay extends GameObject {
 		
 		ArrayList<String> matchingSuccessPrint = new ArrayList<String>();
 		if(DBMng.getInstace().qImWinner()) {
-			matchingSuccessPrint.add("    ");
-			matchingSuccessPrint.add("     ");
-			matchingSuccessPrint.add("    ");
-			matchingSuccessPrint.add("    ");
-			matchingSuccessPrint.add("     ");
-			matchingSuccessPrint.add("   ");
-			matchingSuccessPrint.add("    ");
+			matchingSuccessPrint.add("'##:::::'##:'####:'##::: ##:'##::: ##:'########:'########::");
+			matchingSuccessPrint.add(" ##:'##: ##:. ##:: ###:: ##: ###:: ##: ##.....:: ##.... ##:");
+			matchingSuccessPrint.add(" ##: ##: ##:: ##:: ####: ##: ####: ##: ##::::::: ##:::: ##:");
+			matchingSuccessPrint.add(" ##: ##: ##:: ##:: ## ## ##: ## ## ##: ######::: ########::");
+			matchingSuccessPrint.add(" ##: ##: ##:: ##:: ##. ####: ##. ####: ##...:::: ##.. ##:::");
+			matchingSuccessPrint.add(" ##: ##: ##:: ##:: ##:. ###: ##:. ###: ##::::::: ##::. ##::");
+			matchingSuccessPrint.add(". ###. ###::'####: ##::. ##: ##::. ##: ########: ##:::. ##:");
+			matchingSuccessPrint.add(":...::...:::....::..::::..::..::::..::........::..:::::..::");
 		}
 		else {
-			matchingSuccessPrint.add("  ");
-			matchingSuccessPrint.add(" ");
-			matchingSuccessPrint.add("  ");
-			matchingSuccessPrint.add("  ");
-			matchingSuccessPrint.add("    ");
-			matchingSuccessPrint.add("   ");
-			matchingSuccessPrint.add("    ");
+			matchingSuccessPrint.add("'##::::::::'#######:::'######::'########:'########::");
+			matchingSuccessPrint.add(" ##:::::::'##.... ##:'##... ##: ##.....:: ##.... ##:");
+			matchingSuccessPrint.add(" ##::::::: ##:::: ##: ##:::..:: ##::::::: ##:::: ##:");
+			matchingSuccessPrint.add(" ##::::::: ##:::: ##:. ######:: ######::: ########::");
+			matchingSuccessPrint.add(" ##::::::: ##:::: ##::..... ##: ##...:::: ##.. ##:::");
+			matchingSuccessPrint.add(" ##::::::: ##:::: ##:'##::: ##: ##::::::: ##::. ##::");
+			matchingSuccessPrint.add(" ########:. #######::. ######:: ########: ##:::. ##:");
+			matchingSuccessPrint.add("........:::.......::::......:::........::..:::::..::");
 		}
 		
 		PrintMng.getInstace().diagonalAppearPrint(matchingSuccessPrint);

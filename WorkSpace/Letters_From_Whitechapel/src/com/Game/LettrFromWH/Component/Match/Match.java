@@ -59,16 +59,16 @@ public class Match extends Component {
     
 	public void qSuccessMatching() {
 		stopThread();
-//    	if(DBMng.getInstace().qSuccessMatching()) {
-//    		changeMatchingState(MatchingState.MatchingSuccess);
-//    		((Matching)getGameObject()).mathingSuccess();
-//    	}
-//    	else {
-//    		changeMatchingState(MatchingState.ReMatch);
-//    	}
+    	if(DBMng.getInstace().qSuccessMatching()) {
+    		changeMatchingState(MatchingState.MatchingSuccess);
+    		((Matching)getGameObject()).mathingSuccess();
+    	}
+    	else {
+    		changeMatchingState(MatchingState.ReMatch);
+    	}
 		
-		//임시
-		changeMatchingState(MatchingState.MatchingSuccess);
+//		//임시
+//		changeMatchingState(MatchingState.MatchingSuccess);
 	}
 	
     @Override

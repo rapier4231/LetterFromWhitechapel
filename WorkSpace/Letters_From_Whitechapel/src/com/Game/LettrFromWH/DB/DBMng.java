@@ -652,31 +652,32 @@ public class DBMng {
 	}
 
 	public boolean inquiryJack(String pos) {
-		try {
-			castmt = conn.prepareCall("{ call ???????(?,?,?) }");
-
-			//모든 인자에 대한 set 및 out 셋팅
-			castmt.setInt(1, UserMng.getInstace().getUserId());
-			castmt.setString(2, pos);
-			castmt.registerOutParameter(3, OracleType.NUMBER);
-			
-			//실행
-			castmt.execute();
-
-			int success = castmt.getInt(3);
-			
-			castmt.close();
-			
-			if(success == 1) {
-				return true;
-			}
-
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return false;
+		return arrestJack(pos);
+//		try {
+//			castmt = conn.prepareCall("{ call ???????(?,?,?) }");
+//
+//			//모든 인자에 대한 set 및 out 셋팅
+//			castmt.setInt(1, UserMng.getInstace().getUserId());
+//			castmt.setString(2, pos);
+//			castmt.registerOutParameter(3, OracleType.NUMBER);
+//			
+//			//실행
+//			castmt.execute();
+//
+//			int success = castmt.getInt(3);
+//			
+//			castmt.close();
+//			
+//			if(success == 1) {
+//				return true;
+//			}
+//
+//		}
+//		catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return false;
 	}
 
 	public boolean arrestJack(String pos) {
