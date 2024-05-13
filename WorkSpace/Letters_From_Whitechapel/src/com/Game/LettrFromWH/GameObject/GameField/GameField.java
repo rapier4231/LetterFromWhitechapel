@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import com.Game.LettrFromWH.DB.DBMng;
 import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.GameObject.GameObject;
+import com.Game.LettrFromWH.GameObject.Unit.Unit;
+import com.Game.LettrFromWH.Time.TimeMng;
 
 public class GameField extends GameObject {
 
@@ -34,20 +36,33 @@ public class GameField extends GameObject {
     	return fieldPiece2dArrayList;
     }
 
+	int setFieldNodeResetCount = 0;
+
     public void createField() {
-    	DBMng.getInstace().settingFieldNode(this);
+		if(DBMng.getInstace().getMyRoll() == Unit.UnitType.Police1){
+			TimeMng.getInstace().delayS(2);
+		}
+
+		int rsCol = DBMng.getInstace().getFieldColCount();
+		int colCount = rsCol * 2 - 1;
+		rsCol *= rsCol;
+
+		for(int i = 0; i < colCount; ++i){
+			fieldPiece2dArrayList.add(new ArrayList<>());
+		}
+
+		while (rsCol != setFieldNodeResetCount){
+			setFieldNodeResetCount = 0;
+			DBMng.getInstace().settingFieldNode(this);
+		}
+
 		settingFieldWay();
 		settingUnit();
     }
     
 	public void setFieldNode(ResultSet fieldNode) throws SQLException {
-		int colCount = DBMng.getInstace().getFieldColCount() * 2 - 1;
-		//int rowCount = DBMng.getInstace().getFieldRowCount() * 2 - 1;
+		int colCount = fieldPiece2dArrayList.size();
 		int rowCount = colCount;
-
-		for(int i = 0; i < colCount; ++i){
-			fieldPiece2dArrayList.add(new ArrayList<>());
-		}
 
 		for(int i = 0; i < colCount; ++i){
 			for(int j = 0; j < rowCount; ++j){
@@ -55,7 +70,7 @@ public class GameField extends GameObject {
 					if(!fieldNode.next()){
 						break;
 					}
-
+					++setFieldNodeResetCount;
 					fieldPiece2dArrayList.get(i).add(new Node(fieldNode.getString(1),fieldNode.getString(2),
 								fieldNode.getString(3),fieldNode.getString(4),fieldNode.getString(5),
 								fieldNode.getString(6),fieldNode.getString(7),fieldNode.getString(8),

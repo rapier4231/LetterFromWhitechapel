@@ -43,10 +43,10 @@ public class Police1Ability extends Ability {
 		}
 		else if(userInput.equals(TextStore.Arrest)) {
 			if(DBMng.getInstace().arrestJack(pos)) {				
-				GameMng.getInstace().setActionTalk(TextStore.PoliceArrestFailed);
+				GameMng.getInstace().setActionTalk(TextStore.PoliceArrestSucess);
 			}
 			else {
-				GameMng.getInstace().setActionTalk(TextStore.PoliceArrestSucess);
+				GameMng.getInstace().setActionTalk(TextStore.PoliceArrestFailed);
 			}
 		
 			return true;

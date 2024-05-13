@@ -26,7 +26,6 @@ public abstract class Unit extends GameObject {
 	public void init() {
 		super.init();
 		settingMyUnitType();
-		GameMng.getInstace().setMyRoll(unitType.ordinal());
 		settingOpponentsNode();
 	}
 

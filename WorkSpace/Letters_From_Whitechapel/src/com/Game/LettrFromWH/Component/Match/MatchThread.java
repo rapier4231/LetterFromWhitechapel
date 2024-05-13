@@ -29,8 +29,8 @@ public class MatchThread extends MyThread {
     ///////////////////////////////////////////////////////////
 
     private void matchingFunc() {
-    	//state = DBMng.getInstace().getWaitState();
-    	state = 2;
+    	state = DBMng.getInstace().getWaitState();
+    	//state = 2;
     	
     	if(match == null) {
     		return;
@@ -53,10 +53,11 @@ public class MatchThread extends MyThread {
                 successMatchingCheking();
                 break;
             //상대의 수락 요청을 기다리는 중 (나는 수락 했음)
-            case 3:
+            case 3, 4:
                 match.changeMatchingState(Match.MatchingState.WaitForOpponent);
                 successMatchingCheking();
                 break;
+            //상대의 수락 요청을 기다리는 중 (나는 수락 했음)
             default:
                 break;
         }
@@ -73,12 +74,15 @@ public class MatchThread extends MyThread {
     private void successMatchingCheking(){
         if(TimeMng.getInstace().checkCounting(countingKey)){
         	if(state == 2) {
-        		//match.changeMatchingState(Match.MatchingState.CancelMatching); 
-        		match.changeMatchingState(Match.MatchingState.QSuccessMatching);        		
+        		match.changeMatchingState(Match.MatchingState.CancelMatching);
+        		// match.changeMatchingState(Match.MatchingState.QSuccessMatching);
         	}
         	else if (state == 3) {
-        		match.changeMatchingState(Match.MatchingState.QSuccessMatching);        		
+        		match.changeMatchingState(Match.MatchingState.ReMatch);
         	}
+            else if(state == 4){
+                match.changeMatchingState(Match.MatchingState.MatchingSuccess);
+            }
         	else {
         		System.out.println("successMatchingCheking 에러 - 2도 3도 아님");
         	}

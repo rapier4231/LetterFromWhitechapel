@@ -15,7 +15,7 @@ public class Match extends Component {
         MatchingAgree,
         WaitForOpponent,
         CancelMatching,
-        QSuccessMatching,
+        //QSuccessMatching,
         MatchingSuccess,
         ReMatch,
         MatchingState_End
@@ -27,7 +27,7 @@ public class Match extends Component {
     
     private final String countingKey = "Match";
 
-    private final MatchThread matchThread = new MatchThread(this, countingKey);
+    private MatchThread matchThread;
 
     private boolean runThread = false;
     
@@ -42,6 +42,7 @@ public class Match extends Component {
     }
     
     private void startThread(){
+        matchThread = new MatchThread(this, countingKey);
     	runThread = true;
     	matchThread.start();
     }
@@ -57,24 +58,25 @@ public class Match extends Component {
 		}
 	}
     
-	public void qSuccessMatching() {
-		stopThread();
-    	if(DBMng.getInstace().qSuccessMatching()) {
-    		changeMatchingState(MatchingState.MatchingSuccess);
-    		((Matching)getGameObject()).mathingSuccess();
-    	}
-    	else {
-    		changeMatchingState(MatchingState.ReMatch);
-    	}
-		
-//		//임시
-//		changeMatchingState(MatchingState.MatchingSuccess);
-	}
+//	public void qSuccessMatching() {
+//		stopThread();
+//    	if(DBMng.getInstace().qSuccessMatching()) {
+//    		changeMatchingState(MatchingState.MatchingSuccess);
+//    		((Matching)getGameObject()).mathingSuccess();
+//    	}
+////    	else {
+////    		changeMatchingState(MatchingState.ReMatch);
+////    	}
+////
+////		//임시
+////		changeMatchingState(MatchingState.MatchingSuccess);
+//	}
 	
     @Override
     public void init() {
     	super.init();
     	//초기화
+        //우선 잠시 패스
     	DBMng.getInstace().cancelMatching();
         startThread();
     }
@@ -112,11 +114,11 @@ public class Match extends Component {
             case CancelMatching :
             	cancelMatching();
                 break;
-            case QSuccessMatching :
-            	qSuccessMatching();
-                break;
+//            case QSuccessMatching :
+//            	qSuccessMatching();
+//                break;
             case MatchingSuccess :
-        		((Matching)getGameObject()).mathingSuccess();
+                successMatching();
                 break;
             case ReMatch:
                 reMatchView();
@@ -128,10 +130,14 @@ public class Match extends Component {
         }
 
     }
-    
+
+    private void successMatching() {
+        stopThread();
+        ((Matching)getGameObject()).mathingSuccess();
+    }
+
     public void cancelMatching(){
     	stopThread();
-    	safeThreadEnd();
         DBMng.getInstace().cancelMatching();
         ((Matching)getGameObject()).mathingCancel();
     }
@@ -141,8 +147,8 @@ public class Match extends Component {
     }
 
     private void matchCounting(){
-        //TimeMng.getInstace().startCounting(countingKey,DBMng.getInstace().getMatchingWaitTime());
-        TimeMng.getInstace().startCounting(countingKey,3);
+        TimeMng.getInstace().startCounting(countingKey,DBMng.getInstace().getMatchingWaitTime());
+        //TimeMng.getInstace().startCounting(countingKey,3);
     }
 
     private void qAgreeMatchingView(){
@@ -150,17 +156,17 @@ public class Match extends Component {
         PrintMng.getInstace().pl(TextStore.yesOrNo);
         PrintMng.getInstace().p(TextStore.userInputTalk);
 
-//        String userInput = InputMng.getInstace().Input();
-//
-//        if(userInput.equals(TextStore.yes)){
-//            agreeMatching();
-//        }
-//        else if(userInput.equals(TextStore.no)){
-//            cancelMatching();
-//        }
-//        else{
-//            qAgreeMatchingView();
-//        }
+        String userInput = InputMng.getInstace().Input();
+
+        if(userInput.equals(TextStore.yes)){
+            agreeMatching();
+        }
+        else if(userInput.equals(TextStore.no)){
+            cancelMatching();
+        }
+        else{
+            qAgreeMatchingView();
+        }
     }
 
     private void waitForOpponentView(){
@@ -174,6 +180,7 @@ public class Match extends Component {
     private void reMatchView() {
     	PrintMng.getInstace().cpl(TextStore.reMatch);
     	TimeMng.getInstace().delayS(3);
+        changeMatchingState(MatchingState.WaitForMatching);
     	startThread();
     }
 }

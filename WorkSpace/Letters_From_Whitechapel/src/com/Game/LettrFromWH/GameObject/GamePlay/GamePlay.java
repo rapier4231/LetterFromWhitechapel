@@ -52,7 +52,7 @@ public class GamePlay extends GameObject {
 
 	private boolean changeGameTurnState = false;
 
-	private final GamePlayWaitThread gamePlayWaitThread = new GamePlayWaitThread(this);
+	private GamePlayWaitThread gamePlayWaitThread;
 
 	private boolean runThread = false;
 
@@ -81,7 +81,6 @@ public class GamePlay extends GameObject {
 	@Override
 	public void init() {
 		super.init();
-		GameMng.getInstace().settingTotalPlayers();
 	}
 
 	@Override
@@ -125,6 +124,7 @@ public class GamePlay extends GameObject {
 		}
 		
 		runThread = true;
+		gamePlayWaitThread = new GamePlayWaitThread(this);
 		gamePlayWaitThread.start();
 		return true;
 	}
@@ -200,7 +200,11 @@ public class GamePlay extends GameObject {
 	}
 
 	private void opponentsTurn() {
-
+		if(waitMyTurn()){
+			gameSystemTalk = TextStore.WaitMyTurn;
+			gameSubSystemTalk = "";
+			getGameRenderer().changeView();
+		}
 	}
 
 	private void updateGame() {
@@ -284,8 +288,6 @@ public class GamePlay extends GameObject {
 		}
 		else {
 			changeGameTurnState(GamePlay.GameTurnState.OpponentsTurn);
-			gameSystemTalk = TextStore.WaitMyTurn;
-			getGameRenderer().changeView();
 		}
 	}
 

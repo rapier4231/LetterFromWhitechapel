@@ -117,10 +117,17 @@ public class GameMng {
 	public int getMyRoll() {return myRoll;}
 	
 	public void settingTotalPlayers() {
+		if(totalPlayers != 0){
+			return;
+		}
 		this.totalPlayers = DBMng.getInstace().getTotalPlayers();
 	}
 	
-	public int getTotalPlayers() {return totalPlayers;}
+	public int getTotalPlayers() {
+		if(totalPlayers == 0){
+			settingTotalPlayers();
+		}
+		return totalPlayers;}
 
 	public void addNowTurnNumber() {
 		++ nowTurnNumber;

@@ -1,6 +1,7 @@
 package com.Game.LettrFromWH.Scene;
 
 import com.Game.LettrFromWH.DB.DBMng;
+import com.Game.LettrFromWH.Game.GameMng;
 import com.Game.LettrFromWH.GameObject.GameField.GameField;
 import com.Game.LettrFromWH.GameObject.GamePlay.GamePlay;
 import com.Game.LettrFromWH.GameObject.GameRenderer.GameRenderer;
@@ -26,7 +27,7 @@ public class GameScene extends Scene{
     }
     
     @Override
-    public void inputGameObject() {    	
+    public void inputGameObject() {
     	setGameObject("GameField", new GameField());
     	setGameObject("GamePlay", new GamePlay());
     	setGameObject("GameRenderer", new GameRenderer());
@@ -36,11 +37,13 @@ public class GameScene extends Scene{
     private void checkMyRoll(){
         switch (DBMng.getInstace().getMyRoll()){
             case Jack :
+                GameMng.getInstace().setMyRoll(0);
                 setGameObject("Unit", new Jack());
                 ((GamePlay)getGameObject("GamePlay")).startGame(true);
          
                 break;
             case Police1 :
+                GameMng.getInstace().setMyRoll(1);
                 setGameObject("Unit", new Police1());
                 ((GamePlay)getGameObject("GamePlay")).startGame(false);
                 break;
@@ -54,6 +57,7 @@ public class GameScene extends Scene{
     }
 
     private void settingGame(){
+        GameMng.getInstace().settingTotalPlayers();
         settingTrun();
         ((GameRenderer)getGameObject("GameRenderer")).firstFieldView();
     }

@@ -1,5 +1,7 @@
 package com.Game.LettrFromWH.GameObject.GameField;
 
+import com.Game.LettrFromWH.Printer.PrintMng;
+
 public class Node extends FieldPiece{
 
     public Node(String name, String nodeType, String canMoveTop, String canMoveRightTop,
@@ -15,18 +17,6 @@ public class Node extends FieldPiece{
         this.canMoveLeftBottom= changeStringToBoolean(canMoveLeftBottom);
         this.canMoveLeft= changeStringToBoolean(canMoveLeft);
         this.canMoveLeftTop= changeStringToBoolean(canMoveLeftTop);
-
-//        PrintMng.getInstace().pl(name);
-//        PrintMng.getInstace().pl(this.nodeType.name());
-//        PrintMng.getInstace().pl(canMoveTop);
-//        PrintMng.getInstace().pl( canMoveRightTop);
-//        PrintMng.getInstace().pl(canMoveRight);
-//        PrintMng.getInstace().pl( canMoveRightBottom);
-//        PrintMng.getInstace().pl(canMoveBottom);
-//        PrintMng.getInstace().pl( canMoveLeftBottom);
-//        PrintMng.getInstace().pl(canMoveLeft);
-//        PrintMng.getInstace().pl(canMoveLeftTop);
-
     }
 
     public enum NodeType {

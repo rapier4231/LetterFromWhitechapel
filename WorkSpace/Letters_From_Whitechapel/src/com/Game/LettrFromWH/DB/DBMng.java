@@ -30,7 +30,20 @@ public class DBMng {
 	/////////////////////////////////////////////////////
 	Connection conn = DBConnection.getConnection();
 	CallableStatement castmt;
-	
+
+	private void checkCastmt() throws SQLException {
+		if(castmt == null){
+			return;
+		}
+		if(castmt.isClosed()){
+			castmt = null;
+			return;
+		}
+
+		castmt.close();
+		castmt = null;
+	}
+
 	//Version//
 	public boolean checkClientVersion() {
 		PrintMng.getInstace().p("Now Version Checking");
@@ -38,7 +51,8 @@ public class DBMng {
 		
 		String version = "";	
 		try {
-			
+			checkCastmt();
+
 			castmt = conn.prepareCall("{ call GetActiveGameVersion(?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
@@ -71,6 +85,8 @@ public class DBMng {
 	public boolean checkAccount(String userNickname) {
 		
 		try {
+			checkCastmt();
+
 			castmt = conn.prepareCall("{ call CheckPlayerExists(?, ?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
@@ -101,7 +117,7 @@ public class DBMng {
 	
 	public int getUserId(String userNickname) {
 		
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetPlayerID(?, ?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
@@ -128,7 +144,7 @@ public class DBMng {
 	
 	public String getUserNickname() {
 		
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetPlayerNickName(?, ?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
@@ -156,7 +172,7 @@ public class DBMng {
 
 	public String getUserNickname(int id) {
 
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetPlayerNickName(?, ?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -184,7 +200,7 @@ public class DBMng {
 	
 	public boolean createAccount(String userNickname) {
 		
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call CreatePlayer(?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
@@ -211,7 +227,7 @@ public class DBMng {
 	//Matching//
 	public int getWaitState() {
 		int waitState = -1;
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetPlayerState(?,?) }");
 			
 			//모든 인자에 대한 set 및 out 셋팅
@@ -236,14 +252,14 @@ public class DBMng {
 			castmt.close();
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
 		return waitState;
 	}
 
 	public boolean startMatching(){
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call UpdatePlayerStateToOne(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -265,7 +281,7 @@ public class DBMng {
 	}
 
 	public boolean updateMatching(){
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call UpdatePlayerTime(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -287,7 +303,7 @@ public class DBMng {
 	}
 
 	public boolean agreeMatching(){
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call UpdatePlayerStateToThree(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -310,7 +326,7 @@ public class DBMng {
 	
 	public int getMatchingWaitTime() {
 		int matchingWaitTime = 0;
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetMatchingWaitTime(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -331,7 +347,7 @@ public class DBMng {
 	}
 
 	public void cancelMatching(){
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call UpdatePlayerStateToZero(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -373,24 +389,24 @@ public class DBMng {
 
 	public String getOpponentsUserNickname() {
 		String opponentsUserNickname = "";
-		try {
+		int opponentsUserId = 0;
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetMatchedPlayerID(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
 			castmt.registerOutParameter(2, OracleType.NUMBER);
-
 			//실행
 			castmt.execute();
-
-			opponentsUserNickname = getUserNickname(castmt.getInt(2));
-
+			opponentsUserId = castmt.getInt(2);
 			castmt.close();
 
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+
+		opponentsUserNickname = getUserNickname(opponentsUserId);
 
 		return opponentsUserNickname;
 	}
@@ -399,7 +415,7 @@ public class DBMng {
 
 	public int getTotalPlayers() {
 		int totalPlayers = 0;
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetCurrentTotalPlayers(?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -421,34 +437,34 @@ public class DBMng {
 	}
 	
 	public Unit.UnitType  getMyRoll(){
-		return Unit.UnitType.Police1;
+		//return Unit.UnitType.Police1;
 
-//		Unit.UnitType  unitType = Unit.UnitType.UnitType_End;
-//
-//		try {
-//			castmt = conn.prepareCall("{ call GetPlayerRole(?, ?) }");
-//
-//			//모든 인자에 대한 set 및 out 셋팅
-//			castmt.setInt(1, UserMng.getInstace().getUserId());
-//			castmt.registerOutParameter(2, OracleType.VARCHAR2);
-//
-//			//실행
-//			castmt.execute();
-//
-//			unitType = Unit.UnitType.values()[Integer.parseInt(castmt.getString(2))];
-//
-//			castmt.close();
-//		}
-//		catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//
-//		return unitType;
+		Unit.UnitType  unitType = Unit.UnitType.UnitType_End;
+
+		try {checkCastmt();
+			castmt = conn.prepareCall("{ call GetPlayerRole(?, ?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.registerOutParameter(2, OracleType.VARCHAR2);
+
+			//실행
+			castmt.execute();
+
+			unitType = Unit.UnitType.values()[Integer.parseInt(castmt.getString(2))];
+
+			castmt.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return unitType;
 	}
 
 	public int getMoveCount() {
 		int moveCount = 0;
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetPlayerMoveCount(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -471,7 +487,7 @@ public class DBMng {
 	}
 	
 	public void settingTurnInfo() {
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetGameSettings(?, ?) }");
 			
 			castmt.registerOutParameter(1, OracleTypes.NUMBER);
@@ -491,16 +507,17 @@ public class DBMng {
 	//Field
 	public ResultSet settingFieldNode(GameField gameField) {
 		try {
-			castmt = conn.prepareCall("{ call GetPlayerRoomNodes(?, ?) }");
+			checkCastmt();
+			castmt = conn.prepareCall("{call GetPlayerRoomNodes(?, ?) }");
 
-			//castmt.setInt(1, UserMng.getInstace().getUserId());
-			castmt.setInt(1, 2);
+			castmt.setInt(1, UserMng.getInstace().getUserId());
 			castmt.registerOutParameter(2, OracleTypes.CURSOR);//crs 받을 것
 			
 			castmt.execute();
 			
 			ResultSet rs;
 			rs = (ResultSet) castmt.getObject(2);
+
 			gameField.setFieldNode(rs);
 			
 		    rs.close();
@@ -515,10 +532,10 @@ public class DBMng {
 
 	public int getFieldColCount() {
 		int colCount = 0;
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetCurrentGameFieldCol(?) }");
 
-			castmt.registerOutParameter(1, OracleTypes.NUMBER);//crs 받을 것
+			castmt.registerOutParameter(1, OracleTypes.NUMBER);
 
 			castmt.execute();
 
@@ -534,13 +551,13 @@ public class DBMng {
 	} 
 	
 	public void setKill(String setKill) {
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call UpdateNodeState(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
 			castmt.setString(2, setKill);
-			
+			System.out.println(setKill + "킬 했다!!");
 			//실행
 			castmt.execute();
 
@@ -553,11 +570,10 @@ public class DBMng {
 	}
 	
 	public void setKillNode(GameField gameField) {
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetStateTwoNodes(?, ?) }");
 
-			//castmt.setInt(1, UserMng.getInstace().getUserId());
-			castmt.setInt(1, 2);
+			castmt.setInt(1, UserMng.getInstace().getUserId());
 			castmt.registerOutParameter(2, OracleTypes.CURSOR);//crs 받을 것
 			
 			castmt.execute();
@@ -577,7 +593,7 @@ public class DBMng {
 	//Turn
 	public boolean getMyTurn() {
 		boolean myTurn = false;
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetLastGameTurn(? , ?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -587,8 +603,14 @@ public class DBMng {
 			//실행
 			castmt.execute();
 
-			if(((castmt.getInt(2) + GameMng.getInstace().getTotalPlayers()) % GameMng.getInstace().getTotalPlayers())
-					== GameMng.getInstace().getMyRoll()) {
+			int turn = castmt.getInt(2);
+			System.out.println("현재 턴 받아온 것 : " + turn);
+			int totalPlayers = GameMng.getInstace().getTotalPlayers();
+			System.out.println("totalPlayers 받아온 것 : " + totalPlayers);
+			int myRoll = GameMng.getInstace().getMyRoll();
+			System.out.println("myRoll 받아온 것 : " + myRoll);
+			if(((turn + totalPlayers * 2) % totalPlayers) == myRoll) {
+				System.out.println("내 턴 되었 음");
 				myTurn = true;
 			}
 
@@ -604,7 +626,7 @@ public class DBMng {
 
 	public void updateOpponentsNodeAndActionTalk() {
 
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call GetLastGameTurnDetails(?,?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -626,18 +648,22 @@ public class DBMng {
 	}
 
 	public void sendTurnData(String moveNodeName, String actionTalk, boolean isSendLast) {
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call InsertPlayroomAction(?,?,?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
 			castmt.setString(2, moveNodeName);
+			System.out.println(moveNodeName + "로 이동!");
 			castmt.setString(3, actionTalk);
+			System.out.println(actionTalk + "라고 말!");
 			if(isSendLast) {
 				castmt.setString(4, "1");
+				System.out.println("isSendLast" + "1");
 			}
 			else {
 				castmt.setString(4, "0");
+				System.out.println("isSendLast" + "0");
 			}
 			
 			//실행
@@ -681,7 +707,7 @@ public class DBMng {
 	}
 
 	public boolean arrestJack(String pos) {
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call CheckJackInNode(?,?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -709,7 +735,7 @@ public class DBMng {
 	}
 
 	public boolean endGame() {
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call ReturnOne(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
@@ -724,6 +750,7 @@ public class DBMng {
 			castmt.close();
 			
 			if(isPlaying == 0) {
+				System.out.println("엥 게임 끝났네요?");
 				return true;
 			}
 
@@ -736,7 +763,7 @@ public class DBMng {
 	}
 
 	public boolean qImWinner() {
-		try {
+		try {checkCastmt();
 			castmt = conn.prepareCall("{ call ReturnZero(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
