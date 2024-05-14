@@ -72,9 +72,14 @@ public class GamePlay extends GameObject {
 		changeGameTurnState = true;
 	}
 
-	public void startMyTurn(){
+	public void startMyTurn(boolean endGame){
 		runThread = false;
 		
+		if(endGame) {
+			changeGameTurnState(GameTurnState.GameEnd);
+			return;
+		}
+
 		changeGameTurnState(GameTurnState.Update);
 	}
 	
@@ -240,6 +245,7 @@ public class GamePlay extends GameObject {
 				gameSubSystemTalk = TextStore.JackAbility;
 			}
 			else {
+				GameMng.getInstace().setActionTalk(TextStore.JackNotUseKill);
 				changeGameTurnState(GameTurnState.SendData);
 				return;
 			}
@@ -267,14 +273,14 @@ public class GamePlay extends GameObject {
 		}
 		else {
 			for(int i = 0; i < size - 1; ++i) {
-				DBMng.getInstace().sendTurnData(moveList.get(i),"",false);
+				DBMng.getInstace().sendTurnData(moveList.get(i)," ",false);
 			}
 			DBMng.getInstace().sendTurnData(moveList.get(size - 1),GameMng.getInstace().getActionTalk(),true);
 		}
 		
 		finishMyTurn();
 		
-		getGameRenderer().changeView();
+		
 	}
 	
 	public void startGame(boolean isJack) {
@@ -296,14 +302,14 @@ public class GamePlay extends GameObject {
 			gameSystemTalk = TextStore.WaitMyTurn;
 			gameSubSystemTalk = "";
 			GameMng.getInstace().addNowTurnNumber();
+			getGameRenderer().changeView();
 		}
 	}
 
 	private void endGame() {
-		gameSystemTalk = "게임이 끝났습니다. 모두 고생하셨습니다.";
-		gameSubSystemTalk = "잠시 후, 화면이 전환됩니다.";
-		getGameRenderer().changeView();
-		TimeMng.getInstace().delayS(2);
+		PrintMng.getInstace().cpl("게임이 끝났습니다. 고생하셨습니다.");
+		PrintMng.getInstace().pl("당신은...");
+		TimeMng.getInstace().delayS(1.5f);
 		
 		ArrayList<String> matchingSuccessPrint = new ArrayList<String>();
 		if(DBMng.getInstace().qImWinner()) {

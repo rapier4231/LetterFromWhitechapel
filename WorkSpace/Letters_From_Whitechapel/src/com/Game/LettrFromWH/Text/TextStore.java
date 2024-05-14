@@ -54,7 +54,7 @@ public class TextStore {
 	public static String UseJackAbility = "살인을 하시겠습니까? (1.네 2.아니요)";
 	public static String JackAbility = "살인 즉시 경찰에게 즉시 위치를 들키게 됩니다";
 	public static String UsePoliceAbility = "어떤 능력을 사용하시겠습니까? (1.탐문 2.체포)";
-	public static String PoliceAbility = "[탐문 : 잭이 지나간 자리인지 확인] [체포 : 현재 위치에 잭이 있을 경우 체포 성공])";
+	public static String PoliceAbility = "[탐문 : 잭이 지나갔었는지 확인] [체포 : 잭과 같이 있을 경우 성공])";
 	public static String WaitMyTurn = "상대방 차례입니다.";
 	public static String JackUseKill = "어젯밤, 잭은 살인을 저질렀습니다.";
 	public static String JackNotUseKill = "어젯밤, 아무일도 일어나지 않았습니다.";
@@ -66,10 +66,10 @@ public class TextStore {
 	public static String Arrest = "2";
 	
 	public static String MoveJackUnit(int moveCount){
-		return "잭은 움직이지 않거나, " + moveCount + "칸 이내로 이동할 수 있습니다. (입력 예시 : a2, b2 [또는] NoMove)";
+		return "잭은 움직이지 않거나, " + moveCount + "칸 이내로 이동할 수 있습니다.\n\t(입력 예시 : a2, b2 [또는] NoMove)";
 	}
 	public static String MovePoliceUnit(int moveCount){
-		return "경찰은 움직이지 않거나, " + moveCount + "칸 이내로 이동할 수 있습니다. (입력 예시 : a2, b2, b3 [또는] NoMove)";
+		return "경찰은 움직이지 않거나, " + moveCount + "칸 이내로 이동할 수 있습니다.\n\t(입력 예시 : a2, b2, b3 [또는] NoMove)";
 	}
 	
 	//Exit//

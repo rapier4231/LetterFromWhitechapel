@@ -36,3 +36,13 @@ Game.exe/nothing/lib/wlt/ojdbc.properties
 Game.exe/nothing/lib/wlt/sqlnet.ora
 Game.exe/nothing/lib/wlt/tnsnames.ora
 Game.exe/nothing/lib/wlt/truststore.jks
+LetterFromWhitechapel.zip
+Game/nothing/lib/oracle.properties
+Game/nothing/lib/wlt/cwallet.sso
+Game/nothing/lib/wlt/ewallet.p12
+Game/nothing/lib/wlt/ewallet.pem
+Game/nothing/lib/wlt/keystore.jks
+Game/nothing/lib/wlt/ojdbc.properties
+Game/nothing/lib/wlt/sqlnet.ora
+Game/nothing/lib/wlt/tnsnames.ora
+Game/nothing/lib/wlt/truststore.jks

@@ -11,18 +11,25 @@ public class GamePlayWaitThread extends MyThread {
 
     private final GamePlay gamePlay;
 
+    private boolean endGame = false;
+    
     @Override
     public void run() {
         super.run();
         while(gamePlay.getRunThread()){
             if(checkMyTurn()){
-                gamePlay.startMyTurn();
+                gamePlay.startMyTurn(endGame);
             }
             delayS(0.3f);
         }
     }
 
     private boolean checkMyTurn() {
+    	if(DBMng.getInstace().endGame()) {
+    		endGame = true;
+    		return true;
+    	}
+    	
         return DBMng.getInstace().getMyTurn();
     }
 }

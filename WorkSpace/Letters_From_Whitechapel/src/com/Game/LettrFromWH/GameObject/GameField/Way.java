@@ -5,11 +5,11 @@ public class Way extends FieldPiece{
     private String way = "";
 
     public void setTopBottomWay(){
-        way = "│";
+        way = "｜";
     }
 
     public void setLeftRightWay(){
-        way = "ㅡ";
+        way = "―";
     }
 
     public void setLeftBottomRightTop(){
@@ -17,11 +17,11 @@ public class Way extends FieldPiece{
             return;
         }
 
-        if(way.equals("\\")){
+        if(way.equals("＼")){
             way = "X";
         }
         else {
-            way = "/";
+            way = "／";
         }
     }
 
@@ -30,11 +30,11 @@ public class Way extends FieldPiece{
             return;
         }
 
-        if(way.equals("/")){
+        if(way.equals("／")){
             way = "X";
         }
         else{
-            way = "\\";
+            way = "＼";
         }
     }
 

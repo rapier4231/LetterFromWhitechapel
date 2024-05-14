@@ -21,10 +21,6 @@ public class SceneMng {
 		GameScene,
 		ExitScene;
 		
-		private SceneType() {
-			this.scene = createScene();
-		}
-		
 		private Scene scene;
 		
 		private Scene createScene() {
@@ -46,6 +42,10 @@ public class SceneMng {
 			}
 		}
 		
+		public void settingScene() {
+			this.scene = createScene();
+		}
+		
 	    public Scene getScene() {
 	        return scene;
 	    }
@@ -60,6 +60,7 @@ public class SceneMng {
 		if(nextScene == currentScene) {
 			return;
 		}
+		nextScene.settingScene();
 		
 		preScene = currentScene;
 		currentScene = nextScene;

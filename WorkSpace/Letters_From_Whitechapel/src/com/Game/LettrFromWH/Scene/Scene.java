@@ -33,10 +33,11 @@ public abstract class Scene {
 	public void exit() {
 		
 		 for (Map.Entry<String, GameObject> entry : gameObjectMap.entrySet()) {
+			 entry.getValue().outPlay();
 			 entry.getValue().exit();
 		 }
 		
-		 gameObjectMap.clear();
+		 //gameObjectMap.clear();
 		 
 	}
 	

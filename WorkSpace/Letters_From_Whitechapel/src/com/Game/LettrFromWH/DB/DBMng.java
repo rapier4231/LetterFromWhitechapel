@@ -557,7 +557,6 @@ public class DBMng {
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
 			castmt.setString(2, setKill);
-			System.out.println(setKill + "킬 했다!!");
 			//실행
 			castmt.execute();
 
@@ -604,13 +603,9 @@ public class DBMng {
 			castmt.execute();
 
 			int turn = castmt.getInt(2);
-			System.out.println("현재 턴 받아온 것 : " + turn);
 			int totalPlayers = GameMng.getInstace().getTotalPlayers();
-			System.out.println("totalPlayers 받아온 것 : " + totalPlayers);
 			int myRoll = GameMng.getInstace().getMyRoll();
-			System.out.println("myRoll 받아온 것 : " + myRoll);
 			if(((turn + totalPlayers * 2) % totalPlayers) == myRoll) {
-				System.out.println("내 턴 되었 음");
 				myTurn = true;
 			}
 
@@ -654,16 +649,17 @@ public class DBMng {
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
 			castmt.setString(2, moveNodeName);
-			System.out.println(moveNodeName + "로 이동!");
-			castmt.setString(3, actionTalk);
-			System.out.println(actionTalk + "라고 말!");
+			if(actionTalk.isEmpty() && isSendLast) {
+				castmt.setString(3, TextStore.JackNotUseKill);
+			}
+			else {
+				castmt.setString(3, actionTalk);
+			}
 			if(isSendLast) {
 				castmt.setString(4, "1");
-				System.out.println("isSendLast" + "1");
 			}
 			else {
 				castmt.setString(4, "0");
-				System.out.println("isSendLast" + "0");
 			}
 			
 			//실행
@@ -678,32 +674,31 @@ public class DBMng {
 	}
 
 	public boolean inquiryJack(String pos) {
-		return arrestJack(pos);
-//		try {
-//			castmt = conn.prepareCall("{ call ???????(?,?,?) }");
-//
-//			//모든 인자에 대한 set 및 out 셋팅
-//			castmt.setInt(1, UserMng.getInstace().getUserId());
-//			castmt.setString(2, pos);
-//			castmt.registerOutParameter(3, OracleType.NUMBER);
-//			
-//			//실행
-//			castmt.execute();
-//
-//			int success = castmt.getInt(3);
-//			
-//			castmt.close();
-//			
-//			if(success == 1) {
-//				return true;
-//			}
-//
-//		}
-//		catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return false;
+		try {
+			castmt = conn.prepareCall("{ call CheckJackPassedNode(?,?,?) }");
+
+			//모든 인자에 대한 set 및 out 셋팅
+			castmt.setInt(1, UserMng.getInstace().getUserId());
+			castmt.setString(2, pos);
+			castmt.registerOutParameter(3, OracleType.NUMBER);
+			
+			//실행
+			castmt.execute();
+
+			int success = castmt.getInt(3);
+			
+			castmt.close();
+			
+			if(success == 1) {
+				return true;
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 
 	public boolean arrestJack(String pos) {
@@ -736,7 +731,7 @@ public class DBMng {
 
 	public boolean endGame() {
 		try {checkCastmt();
-			castmt = conn.prepareCall("{ call ReturnOne(?,?) }");
+			castmt = conn.prepareCall("{ call CheckPlayerStateInPlaywait(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());
@@ -749,8 +744,9 @@ public class DBMng {
 			
 			castmt.close();
 			
+			//게임 중이면 1을 반환한다.
 			if(isPlaying == 0) {
-				System.out.println("엥 게임 끝났네요?");
+				System.out.println("endGame - " + isPlaying);
 				return true;
 			}
 
@@ -764,7 +760,7 @@ public class DBMng {
 
 	public boolean qImWinner() {
 		try {checkCastmt();
-			castmt = conn.prepareCall("{ call ReturnZero(?,?) }");
+			castmt = conn.prepareCall("{ call CheckPlayerScore(?,?) }");
 
 			//모든 인자에 대한 set 및 out 셋팅
 			castmt.setInt(1, UserMng.getInstace().getUserId());

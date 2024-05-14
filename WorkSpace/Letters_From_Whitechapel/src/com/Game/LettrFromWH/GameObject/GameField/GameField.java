@@ -251,6 +251,7 @@ public class GameField extends GameObject {
 		
 		//경찰일 경우 안 그려준다 잭.
 		if(GameMng.getInstace().getMyRoll() == 1) {
+			getViewIndexNode(0,0).outJack();
 			return;
 		}
 

@@ -35,9 +35,9 @@ public abstract class Transform extends Component {
 
     public boolean setMoveInput(String[] moveInputArray) {
     	
-//    	if(moveInputArray.length > moveCount) {
-//    		return false;
-//    	}
+    	if(moveInputArray.length > moveCount) {
+    		return false;
+    	}
     	
     	ArrayList<String> moveList = new ArrayList<String>();
     	

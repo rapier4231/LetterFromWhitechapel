@@ -66,7 +66,7 @@ public class GameRenderer extends GameObject {
 
 	private ArrayList<String> settingPrintArray(boolean firstView){
 		ArrayList<String> gamePrintList = new ArrayList<String>();
-
+		gamePrintList.add("                      ");
 		convertAndAddGameField(getGameField().getFieldPiece2dArrayList(), gamePrintList);
 
 		gamePrintList.add(TextStore.GameDividingLine);
